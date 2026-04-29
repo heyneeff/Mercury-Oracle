@@ -22,17 +22,26 @@
 
     #root { width: 100%; height: 100%; }
 
-    /* ── Tier nav ── */
-    .tier-nav {
+    /* ── Top bar ── */
+    .top-bar {
       position: fixed;
       top: 0; left: 0; right: 0;
       z-index: 99000;
       display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.85rem 1.5rem 1rem;
+      background: linear-gradient(to bottom, rgba(14,14,18,0.98) 65%, transparent);
+      pointer-events: none;
+    }
+
+    /* ── Tier nav row ── */
+    .tier-row {
+      display: flex;
       align-items: center;
       justify-content: center;
       gap: 1.2rem;
-      padding: 1rem 0 0.85rem;
-      background: linear-gradient(to bottom, rgba(14,14,18,0.97) 55%, transparent);
       pointer-events: none;
     }
 
@@ -73,6 +82,50 @@
     }
     .tier-pip.active { background: #c9a84c; }
 
+    /* ── Inquiry row ── */
+    .inquiry-row {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      width: 100%;
+      max-width: 560px;
+      pointer-events: all;
+    }
+
+    .inquiry-input {
+      flex: 1;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid #2a2820;
+      border-radius: 4px;
+      color: #c8bfb0;
+      font-family: Georgia, serif;
+      font-size: 0.85rem;
+      font-style: italic;
+      letter-spacing: 0.04em;
+      padding: 0.45rem 0.8rem;
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+    .inquiry-input::placeholder { color: #3a3530; }
+    .inquiry-input:focus { border-color: #4a4030; }
+
+    .reset-btn {
+      pointer-events: all;
+      background: transparent;
+      border: 1px solid #2a2820;
+      border-radius: 4px;
+      color: #4a4540;
+      font-family: Georgia, serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      padding: 0.45rem 0.9rem;
+      cursor: pointer;
+      transition: border-color 0.2s, color 0.2s;
+      white-space: nowrap;
+    }
+    .reset-btn:hover { border-color: #c9a84c; color: #c9a84c; }
+
     /* ── Tier layer stack ── */
     .tier-stack {
       position: relative;
@@ -89,7 +142,7 @@
         opacity   0.7s ease;
     }
 
-    /* ── Pan canvas (infinite) ── */
+    /* ── Pan viewport ── */
     .pan-viewport {
       width: 100%;
       height: 100%;
@@ -176,7 +229,7 @@
       50%      { box-shadow: 0 0 22px 7px rgba(0,150,255,0.7); }
     }
 
-    .cell-wrapper { animation: cellIn 0.3s ease forwards; }
+    .cell-enter { animation: cellIn 0.28s ease forwards; }
     @keyframes cellIn { from { opacity: 0; } to { opacity: 1; } }
 
     /* ── Nodal overlay ── */
@@ -193,9 +246,9 @@
     @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
     .nodal-panel {
-      display: flex; flex-direction: row;
-      gap: 2.5rem; align-items: flex-start;
-      max-width: 720px; width: 100%;
+      display: flex; flex-direction: column;
+      gap: 1.5rem; align-items: flex-start;
+      max-width: 620px; width: 100%;
       animation: slideUp 0.28s ease;
     }
     @keyframes slideUp {
@@ -203,16 +256,33 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
+    .nodal-inquiry {
+      font-style: italic;
+      font-size: 0.82rem;
+      color: #4a4030;
+      letter-spacing: 0.06em;
+      border-left: 1px solid #2a2820;
+      padding-left: 0.8rem;
+    }
+
+    .nodal-card-row {
+      display: flex;
+      flex-direction: row;
+      gap: 2rem;
+      align-items: flex-start;
+      width: 100%;
+    }
+
     .nodal-img {
-      width: 180px; height: 180px; object-fit: cover;
-      border-radius: 14px; flex-shrink: 0;
+      width: 160px; height: 160px; object-fit: cover;
+      border-radius: 12px; flex-shrink: 0;
       box-shadow: 0 12px 40px rgba(0,0,0,0.65);
     }
-    .nodal-text { flex: 1; display: flex; flex-direction: column; gap: 1rem; }
+    .nodal-text { flex: 1; display: flex; flex-direction: column; gap: 0.85rem; }
     .nodal-tier-badge { font-size: 0.68rem; letter-spacing: 0.35em; color: #3a3530; text-transform: uppercase; }
-    .nodal-title { font-size: 1.5rem; font-weight: 400; color: #c9a84c; letter-spacing: 0.08em; }
-    .nodal-phrase { font-style: italic; color: #a09080; font-size: 1rem; line-height: 1.65; }
-    .nodal-meaning { color: #c8bfb0; font-size: 0.95rem; line-height: 1.78; }
+    .nodal-title { font-size: 1.4rem; font-weight: 400; color: #c9a84c; letter-spacing: 0.08em; }
+    .nodal-phrase { font-style: italic; color: #a09080; font-size: 0.95rem; line-height: 1.65; }
+    .nodal-meaning { color: #c8bfb0; font-size: 0.9rem; line-height: 1.78; }
     .nodal-close {
       align-self: flex-start; background: transparent;
       border: 1px solid #3a3530; color: #6e6458;
@@ -236,33 +306,40 @@
   <script type="text/babel">
     const { useState, useEffect, useRef } = React;
 
-    const SIZE  = 280;
-    const GAP_X = -2;
-    const GAP_Y = -4;
-    const JIT_X = 6;
-    const JIT_Y = 3;
-    const ROT   = 1.2;
-    const PAN_THRESHOLD = 6; // px before a touch becomes a pan
+    const SIZE      = 280;
+    const GAP       = 8;   // clean gap between cards, grid-locked
+    const STEP      = SIZE + GAP;
+    const PAN_THRESHOLD = 6;
 
     const DELTA = { up:[0,-1], down:[0,1], left:[-1,0], right:[1,0] };
 
     function cellKey(x,y)    { return `${x},${y}`; }
     function pickRandom(arr) { return arr[Math.floor(Math.random()*arr.length)]; }
-    function jitter(max)     { return (Math.random()-0.5)*max; }
 
     // ── NodalOverlay ──────────────────────────────────────────────────────────
-    function NodalOverlay({ card, tierLabel, onClose }) {
+    function NodalOverlay({ card, tierLabel, inquiry, onClose }) {
       return (
         <div className="nodal-backdrop" onClick={onClose}>
           <div className="nodal-panel" onClick={e => e.stopPropagation()}>
-            {card.imageUrl && <img src={card.imageUrl} alt={card.title} className="nodal-img" />}
-            <div className="nodal-text">
-              {tierLabel && <p className="nodal-tier-badge">Tier {tierLabel}</p>}
-              <h2 className="nodal-title">{card.title}</h2>
-              {card.phrase  && <p className="nodal-phrase">"{card.phrase}"</p>}
-              {card.meaning && <p className="nodal-meaning">{card.meaning}</p>}
-              <button className="nodal-close" onClick={onClose}>close</button>
+
+            {/* Inquiry at top if present */}
+            {inquiry && inquiry.trim() && (
+              <p className="nodal-inquiry">"{inquiry}"</p>
+            )}
+
+            <div className="nodal-card-row">
+              {card.imageUrl && (
+                <img src={card.imageUrl} alt={card.title} className="nodal-img" />
+              )}
+              <div className="nodal-text">
+                {tierLabel && <p className="nodal-tier-badge">Tier {tierLabel}</p>}
+                <h2 className="nodal-title">{card.title}</h2>
+                {card.phrase  && <p className="nodal-phrase">"{card.phrase}"</p>}
+                {card.meaning && <p className="nodal-meaning">{card.meaning}</p>}
+              </div>
             </div>
+
+            <button className="nodal-close" onClick={onClose}>close</button>
           </div>
         </div>
       );
@@ -271,13 +348,13 @@
     // ── Card ──────────────────────────────────────────────────────────────────
     function Card({ card, cardBack, faceDown, size, zIndex, onReveal, onAddDir, onClarifier, onNodal, isClarifier }) {
       return (
-        <div className={`card-scene${card.isGo ? ' go-card' : ''}`} style={{ width:size, height:size, zIndex }}>
+        <div className={`card-scene${card.isGo ? ' go-card' : ''}`}
+          style={{ width:size, height:size, zIndex }}>
           <div className={`card-inner${faceDown ? '' : ' revealed'}`}>
 
             <div className="card-face card-back"
               onClick={faceDown ? onReveal : undefined}
-              style={{ cursor: faceDown ? 'pointer' : 'default' }}
-            >
+              style={{ cursor: faceDown ? 'pointer' : 'default' }}>
               <img src={cardBack} alt="card back" />
             </div>
 
@@ -299,11 +376,11 @@
       );
     }
 
-    // ── Spread (infinite pan canvas) ──────────────────────────────────────────
-    function Spread({ cards, cardBack, tierLabel, active }) {
-      const [cells, setCells] = useState([
-        { x:0, y:0, z:0, face:cards[0], faceDown:true, jitterX:0, jitterY:0, rot:0 }
-      ]);
+    // ── Spread ────────────────────────────────────────────────────────────────
+    function Spread({ cards, cardBack, tierLabel, inquiry, active, resetSignal }) {
+      const initialCell = { x:0, y:0, z:0, face:cards[0], faceDown:true };
+
+      const [cells,       setCells]       = useState([initialCell]);
       const [clarifiers,  setClarifiers]  = useState({});
       const [goSpreads,   setGoSpreads]   = useState({});
       const [activeNodal, setActiveNodal] = useState(null);
@@ -312,7 +389,18 @@
       const [panY,        setPanY]        = useState(0);
 
       const viewportRef = useRef(null);
-      const drag = useRef({ on:false, startX:0, startY:0, panX:0, panY:0, moved:false });
+      const drag        = useRef({ on:false, startX:0, startY:0, panX:0, panY:0, moved:false });
+
+      // Reset when signal fires
+      useEffect(() => {
+        setCells([initialCell]);
+        setClarifiers({});
+        setGoSpreads({});
+        setActiveNodal(null);
+        setFocused(null);
+        setPanX(0);
+        setPanY(0);
+      }, [resetSignal]);
 
       // ── Pan: mouse ──
       function onMouseDown(e) {
@@ -328,11 +416,10 @@
       }
       function onMouseUp() { drag.current.on = false; }
 
-      // ── Pan: touch (needs passive:false for preventDefault) ──
+      // ── Pan: touch ──
       useEffect(() => {
         const el = viewportRef.current;
         if (!el) return;
-
         function onTouchStart(e) {
           if (!active) return;
           const t = e.touches[0];
@@ -343,43 +430,38 @@
           const t = e.touches[0];
           const dx = t.clientX - drag.current.startX;
           const dy = t.clientY - drag.current.startY;
-          if (Math.abs(dx) > PAN_THRESHOLD || Math.abs(dy) > PAN_THRESHOLD) drag.current.moved = true;
-          if (drag.current.moved) {
-            e.preventDefault();
-            setPanX(drag.current.panX+dx);
-            setPanY(drag.current.panY+dy);
-          }
+          if (Math.abs(dx)>PAN_THRESHOLD || Math.abs(dy)>PAN_THRESHOLD) drag.current.moved = true;
+          if (drag.current.moved) { e.preventDefault(); setPanX(drag.current.panX+dx); setPanY(drag.current.panY+dy); }
         }
         function onTouchEnd() { drag.current.on = false; }
-
-        el.addEventListener('touchstart',  onTouchStart,  { passive:true });
-        el.addEventListener('touchmove',   onTouchMove,   { passive:false });
-        el.addEventListener('touchend',    onTouchEnd,    { passive:true });
+        el.addEventListener('touchstart', onTouchStart,  { passive:true });
+        el.addEventListener('touchmove',  onTouchMove,   { passive:false });
+        el.addEventListener('touchend',   onTouchEnd,    { passive:true });
         return () => {
-          el.removeEventListener('touchstart',  onTouchStart);
-          el.removeEventListener('touchmove',   onTouchMove);
-          el.removeEventListener('touchend',    onTouchEnd);
+          el.removeEventListener('touchstart', onTouchStart);
+          el.removeEventListener('touchmove',  onTouchMove);
+          el.removeEventListener('touchend',   onTouchEnd);
         };
       }, [active, panX, panY]);
 
-      // ── Spread actions ──
+      // ── Actions ──
       function pick() { return pickRandom(cards); }
 
       function revealCard(key) {
         setCells(prev => prev.map(c => cellKey(c.x,c.y)===key
-          ? { ...c, face:pick(), faceDown:false, jitterX:jitter(JIT_X), jitterY:jitter(JIT_Y), rot:jitter(ROT) } : c));
+          ? { ...c, face:pick(), faceDown:false } : c));
       }
 
       function addNeighbor(x, y, dir) {
         const [dx,dy] = DELTA[dir];
         const nx=x+dx, ny=y+dy, key=cellKey(nx,ny);
         setCells(prev => prev.find(c=>cellKey(c.x,c.y)===key) ? prev
-          : [...prev, { x:nx, y:ny, z:prev.length, face:cards[0], faceDown:true, jitterX:0, jitterY:0, rot:0 }]);
+          : [...prev, { x:nx, y:ny, z:prev.length, face:cards[0], faceDown:true }]);
       }
 
       function spawnClarifier(cell) {
         if (cell.faceDown) return;
-        setClarifiers(prev => ({ ...prev, [cellKey(cell.x,cell.y)]: pick() }));
+        setClarifiers(prev => ({...prev, [cellKey(cell.x,cell.y)]: pick()}));
       }
 
       function closeClarifier(x, y) {
@@ -390,7 +472,7 @@
         if (!parent.face.isGo || !parent.face.goSpread) return;
         const key = cellKey(parent.x,parent.y);
         if (goSpreads[key]) {
-          setCells(prev => prev.filter(c => !goSpreads[key].includes(cellKey(c.x,c.y))));
+          setCells(prev => prev.filter(c=>!goSpreads[key].includes(cellKey(c.x,c.y))));
           setGoSpreads(prev => { const g={...prev}; delete g[key]; return g; });
           return;
         }
@@ -401,10 +483,10 @@
           newKeys.push(ck);
           setTimeout(()=>{
             setCells(prev => prev.find(c=>cellKey(c.x,c.y)===ck) ? prev
-              : [...prev,{x:nx,y:ny,z:prev.length,face:pick(),faceDown:false,jitterX:jitter(JIT_X),jitterY:jitter(JIT_Y),rot:jitter(ROT)}]);
+              : [...prev,{x:nx,y:ny,z:prev.length,face:pick(),faceDown:false}]);
           }, i*350);
         });
-        setGoSpreads(prev => ({...prev,[key]:newKeys}));
+        setGoSpreads(prev=>({...prev,[key]:newKeys}));
       }
 
       // ── Keyboard ──
@@ -413,10 +495,10 @@
         function handleKey(e) {
           if (!focused) return;
           switch(e.key) {
-            case 'ArrowUp':   case 'w': addNeighbor(focused.x,focused.y,'up');    break;
-            case 'ArrowDown': case 's': addNeighbor(focused.x,focused.y,'down');  break;
-            case 'ArrowLeft': case 'a': addNeighbor(focused.x,focused.y,'left');  break;
-            case 'ArrowRight':case 'd': addNeighbor(focused.x,focused.y,'right'); break;
+            case 'ArrowUp':    case 'w': addNeighbor(focused.x,focused.y,'up');    break;
+            case 'ArrowDown':  case 's': addNeighbor(focused.x,focused.y,'down');  break;
+            case 'ArrowLeft':  case 'a': addNeighbor(focused.x,focused.y,'left');  break;
+            case 'ArrowRight': case 'd': addNeighbor(focused.x,focused.y,'right'); break;
             case 'Enter': revealCard(cellKey(focused.x,focused.y)); break;
             case ' ': e.preventDefault(); if(!focused.faceDown) setActiveNodal(focused.face); break;
             case 'c': spawnClarifier(focused); break;
@@ -429,7 +511,6 @@
         return () => window.removeEventListener('keydown', handleKey);
       }, [active, focused, clarifiers, goSpreads]);
 
-      // ── Render ──
       return (
         <div
           ref={viewportRef}
@@ -440,21 +521,20 @@
           onMouseUp={onMouseUp}
           onMouseLeave={onMouseUp}
         >
-          {/* Infinite canvas — origin at center */}
           <div className="pan-canvas" style={{ transform:`translate(${panX}px,${panY}px)` }}>
 
+            {/* Grid cells — locked to STEP grid, no jitter, no rotation */}
             {cells.map(cell => {
-              const key   = cellKey(cell.x, cell.y);
-              const left  = cell.x*(SIZE+GAP_X) - SIZE/2 + cell.jitterX;
-              const top   = cell.y*(SIZE+GAP_Y) - SIZE/2 + cell.jitterY;
+              const key   = cellKey(cell.x,cell.y);
+              const left  = cell.x*STEP - SIZE/2;
+              const top   = cell.y*STEP - SIZE/2;
               const isFoc = focused && cellKey(focused.x,focused.y)===key;
 
               return (
-                <div key={key} className="cell-wrapper" style={{
+                <div key={key} className="cell-enter" style={{
                   position:'absolute', left, top,
-                  transform:`rotate(${cell.rot}deg)`,
                   zIndex:cell.z, width:SIZE, height:SIZE,
-                  outline:isFoc?'2px solid rgba(201,168,76,0.55)':'none',
+                  outline: isFoc ? '2px solid rgba(201,168,76,0.55)' : 'none',
                   borderRadius:16,
                 }}
                 onClick={()=>{ if(!drag.current.moved && active) setFocused(cell); }}
@@ -472,13 +552,17 @@
               );
             })}
 
+            {/* Clarifiers */}
             {Object.entries(clarifiers).map(([key,clarifier])=>{
-              if(!clarifier) return null;
-              const [x,y]=key.split(',').map(Number);
-              const left=x*(SIZE+GAP_X)-SIZE/2-40;
-              const top =y*(SIZE+GAP_Y)-SIZE/2-40;
+              if (!clarifier) return null;
+              const [x,y] = key.split(',').map(Number);
               return (
-                <div key={`clar-${key}`} style={{position:'absolute',left,top,zIndex:9999}}>
+                <div key={`clar-${key}`} style={{
+                  position:'absolute',
+                  left: x*STEP - SIZE/2 - 40,
+                  top:  y*STEP - SIZE/2 - 40,
+                  zIndex:9999,
+                }}>
                   <button onClick={()=>closeClarifier(x,y)} style={{
                     position:'absolute',top:-12,left:-12,
                     background:'#111',color:'#fff',
@@ -487,8 +571,9 @@
                     zIndex:10000,fontSize:11,
                     lineHeight:'22px',textAlign:'center',padding:0,
                   }}>✕</button>
-                  <Card card={clarifier} cardBack={cardBack} faceDown={false}
-                    size={SIZE*0.75} zIndex={9999} isClarifier={true}
+                  <Card card={clarifier} cardBack={cardBack}
+                    faceDown={false} size={SIZE*0.75} zIndex={9999}
+                    isClarifier={true}
                     onClarifier={()=>setActiveNodal(clarifier)} />
                 </div>
               );
@@ -496,37 +581,24 @@
           </div>
 
           {activeNodal && (
-            <NodalOverlay card={activeNodal} tierLabel={tierLabel} onClose={()=>setActiveNodal(null)} />
+            <NodalOverlay
+              card={activeNodal}
+              tierLabel={tierLabel}
+              inquiry={inquiry}
+              onClose={()=>setActiveNodal(null)}
+            />
           )}
-        </div>
-      );
-    }
-
-    // ── TierNav ───────────────────────────────────────────────────────────────
-    function TierNav({ tiers, currentIndex, onNavigate }) {
-      return (
-        <div className="tier-nav">
-          <button className="tier-btn"
-            onClick={()=>onNavigate(currentIndex-1)}
-            disabled={currentIndex===0}>◂</button>
-          <span className="tier-label">{tiers[currentIndex].id}</span>
-          <button className="tier-btn"
-            onClick={()=>onNavigate(currentIndex+1)}
-            disabled={currentIndex===tiers.length-1}>▸</button>
-          <div className="tier-pips">
-            {tiers.map((_,i)=>(
-              <div key={i} className={`tier-pip${i===currentIndex?' active':''}`} />
-            ))}
-          </div>
         </div>
       );
     }
 
     // ── App ───────────────────────────────────────────────────────────────────
     function App() {
-      const [config,    setConfig]    = useState(null);
-      const [error,     setError]     = useState(null);
-      const [tierIndex, setTierIndex] = useState(0);
+      const [config,      setConfig]      = useState(null);
+      const [error,       setError]       = useState(null);
+      const [tierIndex,   setTierIndex]   = useState(0);
+      const [inquiry,     setInquiry]     = useState('');
+      const [resetSignal, setResetSignal] = useState(0);
 
       useEffect(()=>{
         fetch('./cards.json')
@@ -535,45 +607,55 @@
           .catch(err=>setError(err.message));
       },[]);
 
+      function reset() { setResetSignal(s => s+1); }
+
+      function tierStyle(i) {
+        const depth = tierIndex - i;
+        const T = 'transform 0.7s cubic-bezier(0.4,0.2,0.2,1), opacity 0.7s ease';
+        if (depth < 0) return { opacity:0, transform:'scale(1.06)', pointerEvents:'none', zIndex:0, transition:T };
+        if (depth === 0) return { opacity:1, transform:'scale(1)',    pointerEvents:'all',  zIndex:10, transition:T };
+        const scale   = Math.pow(0.72, depth);
+        const opacity = Math.max(0.05, 0.32-(depth-1)*0.13);
+        return { opacity, transform:`scale(${scale.toFixed(3)})`, pointerEvents:'none', zIndex:10-depth, transition:T };
+      }
+
       if (error)   return <div className="loading">could not load cards.json — {error}</div>;
       if (!config) return <div className="loading">loading…</div>;
 
-      // Tier depth style — current fills screen, previous scale down behind it
-      function tierStyle(i) {
-        const depth = tierIndex - i; // 0=current, +ve=behind, -ve=ahead
-        const T = 'transform 0.7s cubic-bezier(0.4,0.2,0.2,1), opacity 0.7s ease';
-
-        if (depth < 0) return {   // not yet reached — hidden above
-          opacity: 0,
-          transform: 'scale(1.06)',
-          pointerEvents: 'none',
-          zIndex: 0,
-          transition: T,
-        };
-        if (depth === 0) return { // current
-          opacity: 1,
-          transform: 'scale(1)',
-          pointerEvents: 'all',
-          zIndex: 10,
-          transition: T,
-        };
-        // behind — stair-step back into distance
-        const scale   = Math.pow(0.72, depth);
-        const opacity = Math.max(0.06, 0.34 - (depth-1)*0.14);
-        return {
-          opacity,
-          transform: `scale(${scale.toFixed(3)})`,
-          pointerEvents: 'none',
-          zIndex: 10 - depth,
-          transition: T,
-        };
-      }
-
       return (
         <div style={{ height:'100vh', background:'#0e0e12' }}>
-          <TierNav tiers={config.tiers} currentIndex={tierIndex} onNavigate={setTierIndex} />
 
-          {/* All tiers stay mounted — current in front, previous shrink behind */}
+          {/* ── Top bar ── */}
+          <div className="top-bar">
+            <div className="tier-row">
+              <button className="tier-btn"
+                onClick={()=>setTierIndex(i=>i-1)}
+                disabled={tierIndex===0}>◂</button>
+              <span className="tier-label">{config.tiers[tierIndex].id}</span>
+              <button className="tier-btn"
+                onClick={()=>setTierIndex(i=>i+1)}
+                disabled={tierIndex===config.tiers.length-1}>▸</button>
+              <div className="tier-pips">
+                {config.tiers.map((_,i)=>(
+                  <div key={i} className={`tier-pip${i===tierIndex?' active':''}`} />
+                ))}
+              </div>
+            </div>
+
+            <div className="inquiry-row">
+              <input
+                className="inquiry-input"
+                type="text"
+                placeholder="What is your inquiry…"
+                value={inquiry}
+                onChange={e=>setInquiry(e.target.value)}
+                onMouseDown={e=>e.stopPropagation()}
+              />
+              <button className="reset-btn" onClick={reset}>Reset</button>
+            </div>
+          </div>
+
+          {/* ── Tier stack ── */}
           <div className="tier-stack">
             {config.tiers.map((tier,i)=>(
               <div key={tier.id} className="tier-layer" style={tierStyle(i)}>
@@ -581,7 +663,9 @@
                   cards={tier.cards}
                   cardBack={config.cardBack}
                   tierLabel={tier.id}
+                  inquiry={inquiry}
                   active={i===tierIndex}
+                  resetSignal={resetSignal}
                 />
               </div>
             ))}
