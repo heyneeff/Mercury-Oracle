@@ -1,42 +1,99 @@
 {
   "name": "Mercury Oracle",
   "cardBack": "./cards/card-back.png",
-  "cards": [
+  "tiers": [
     {
-      "id": "01",
-      "title": "The Messenger",
-      "imageUrl": "./cards/01.jpg",
-      "phrase": "Words arrive before their meaning.",
-      "meaning": "A signal is in transit. Something you have been waiting to hear is already on its way. Stay receptive — the channel is open."
+      "id": "I",
+      "cards": [
+        {
+          "id": "01",
+          "title": "The Messenger",
+          "imageUrl": "./cards/01.jpg",
+          "phrase": "Words arrive before their meaning.",
+          "meaning": "A signal is in transit. Something you have been waiting to hear is already on its way. Stay receptive — the channel is open."
+        },
+        {
+          "id": "02",
+          "title": "The Mirror",
+          "imageUrl": "./cards/02.jpg",
+          "phrase": "What you see is what is seeing.",
+          "meaning": "The situation reflects something interior. Look past the surface event to what it is showing you about yourself."
+        },
+        {
+          "id": "03",
+          "title": "The Threshold",
+          "imageUrl": "./cards/03.jpg",
+          "phrase": "One foot is already through.",
+          "meaning": "A crossing is underway. Hesitation now costs more than it saves. The door is open; trust your original impulse."
+        },
+        {
+          "id": "go-I",
+          "title": "The Spread",
+          "imageUrl": "./cards/go-01.jpg",
+          "phrase": "Everything at once.",
+          "meaning": "A full opening. All positions are in play.",
+          "isGo": true,
+          "goSpread": [
+            { "dx": -1, "dy":  0 },
+            { "dx":  1, "dy":  0 },
+            { "dx":  0, "dy": -1 },
+            { "dx":  0, "dy":  1 },
+            { "dx": -1, "dy": -1 },
+            { "dx":  1, "dy": -1 }
+          ]
+        }
+      ]
     },
     {
-      "id": "02",
-      "title": "The Mirror",
-      "imageUrl": "./cards/02.jpg",
-      "phrase": "What you see is what is seeing.",
-      "meaning": "The situation reflects something interior. Look past the surface event to what it is showing you about yourself."
+      "id": "II",
+      "cards": [
+        {
+          "id": "II-01",
+          "title": "The Current",
+          "imageUrl": "./cards/II-01.jpg",
+          "phrase": "What moves beneath the surface.",
+          "meaning": "The pattern beneath the immediate event. Step back and read the larger current you are moving through."
+        },
+        {
+          "id": "II-02",
+          "title": "The Field",
+          "imageUrl": "./cards/II-02.jpg",
+          "phrase": "Context is not background — it is ground.",
+          "meaning": "The conditions surrounding this moment. What has accumulated to make this possible, or difficult."
+        },
+        {
+          "id": "II-03",
+          "title": "The Witness",
+          "imageUrl": "./cards/II-03.jpg",
+          "phrase": "Someone is watching this unfold.",
+          "meaning": "There is a vantage point available to you. Rise to it. From here the shape of events becomes visible."
+        }
+      ]
     },
     {
-      "id": "03",
-      "title": "The Threshold",
-      "imageUrl": "./cards/03.jpg",
-      "phrase": "One foot is already through.",
-      "meaning": "A crossing is underway. Hesitation now costs more than it saves. The door is open; trust your original impulse."
-    },
-    {
-      "id": "go-01",
-      "title": "The Spread",
-      "imageUrl": "./cards/go-01.jpg",
-      "phrase": "Everything at once.",
-      "meaning": "A full opening. All positions are in play simultaneously.",
-      "isGo": true,
-      "goSpread": [
-        { "dx": -1, "dy":  0 },
-        { "dx":  1, "dy":  0 },
-        { "dx":  0, "dy": -1 },
-        { "dx":  0, "dy":  1 },
-        { "dx": -1, "dy": -1 },
-        { "dx":  1, "dy": -1 }
+      "id": "III",
+      "cards": [
+        {
+          "id": "III-01",
+          "title": "The Root",
+          "imageUrl": "./cards/III-01.jpg",
+          "phrase": "Before the question, this.",
+          "meaning": "The structural condition beneath everything else. This is not about the immediate situation — it is about what makes the situation possible at all."
+        },
+        {
+          "id": "III-02",
+          "title": "The Long Arc",
+          "imageUrl": "./cards/III-02.jpg",
+          "phrase": "You are further along than you think.",
+          "meaning": "Seen from the longest view, this moment is a confirmation, not a crisis. Trust the trajectory."
+        },
+        {
+          "id": "III-03",
+          "title": "The Unnamed",
+          "imageUrl": "./cards/III-03.jpg",
+          "phrase": "Not everything resolves into language.",
+          "meaning": "There is something at work here that cannot yet be named. Hold it without forcing definition. It will make itself known."
+        }
       ]
     }
   ]
