@@ -17,21 +17,22 @@
       overflow: hidden;
       height: 100vh;
       width: 100vw;
+      user-select: none;
     }
 
     #root { width: 100%; height: 100%; }
 
-    /* ── Tier navigation ── */
+    /* ── Tier nav ── */
     .tier-nav {
       position: fixed;
       top: 0; left: 0; right: 0;
-      z-index: 9000;
+      z-index: 99000;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 1.2rem;
       padding: 1rem 0 0.85rem;
-      background: linear-gradient(to bottom, rgba(14,14,18,0.96) 60%, transparent);
+      background: linear-gradient(to bottom, rgba(14,14,18,0.97) 55%, transparent);
       pointer-events: none;
     }
 
@@ -43,21 +44,20 @@
       font-family: Georgia, serif;
       font-size: 1.1rem;
       cursor: pointer;
-      padding: 0.2rem 0.6rem;
+      padding: 0.25rem 0.7rem;
       transition: color 0.2s ease;
       line-height: 1;
     }
     .tier-btn:hover:not(:disabled) { color: #c9a84c; }
-    .tier-btn:disabled { color: #222018; cursor: default; }
+    .tier-btn:disabled { color: #1e1c18; cursor: default; }
 
     .tier-label {
       font-family: Georgia, serif;
       font-size: 1.05rem;
-      letter-spacing: 0.4em;
+      letter-spacing: 0.45em;
       color: #c9a84c;
       min-width: 2.5rem;
       text-align: center;
-      user-select: none;
     }
 
     .tier-pips {
@@ -69,18 +69,41 @@
       width: 5px; height: 5px;
       border-radius: 50%;
       background: #252320;
-      transition: background 0.35s ease;
+      transition: background 0.4s ease;
     }
     .tier-pip.active { background: #c9a84c; }
 
-    /* ── Spread transition ── */
-    .spread-wrap {
-      width: 100%; height: 100%;
-      transition: opacity 0.35s ease, transform 0.35s ease;
-      transform-origin: center center;
+    /* ── Tier layer stack ── */
+    .tier-stack {
+      position: relative;
+      width: 100%;
+      height: 100%;
     }
-    .spread-wrap.exiting  { opacity: 0; transform: scale(0.93); }
-    .spread-wrap.entering { opacity: 0; transform: scale(1.05); }
+
+    .tier-layer {
+      position: absolute;
+      inset: 0;
+      transform-origin: center center;
+      transition:
+        transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1),
+        opacity   0.7s ease;
+    }
+
+    /* ── Pan canvas (infinite) ── */
+    .pan-viewport {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .pan-canvas {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 0;
+      height: 0;
+    }
 
     /* ── Card ── */
     .card-scene {
@@ -91,6 +114,7 @@
     .card-scene:hover {
       transform: scale(1.05);
       box-shadow: 0 10px 28px rgba(0,0,0,0.55);
+      z-index: 9999 !important;
     }
 
     .card-inner {
@@ -102,8 +126,7 @@
     .card-inner.revealed { transform: rotateY(180deg); }
 
     .card-face {
-      position: absolute;
-      inset: 0;
+      position: absolute; inset: 0;
       backface-visibility: hidden;
       -webkit-backface-visibility: hidden;
       border-radius: 16px;
@@ -130,48 +153,40 @@
     .paddle-right { top: 50%;   right: 3px; transform: translateY(-50%); width: 12px; height: 40%; }
 
     .btn-clarifier {
-      position: absolute;
-      top: 8px; left: 8px;
+      position: absolute; top: 8px; left: 8px;
       background: rgba(255,255,255,0.88);
-      border-radius: 50%;
-      width: 28px; height: 28px;
-      border: none; cursor: pointer;
-      font-size: 14px; line-height: 28px;
-      text-align: center; padding: 0;
-      z-index: 100;
-      transition: transform 0.15s ease;
+      border-radius: 50%; width: 28px; height: 28px;
+      border: none; cursor: pointer; font-size: 14px;
+      line-height: 28px; text-align: center; padding: 0;
+      z-index: 100; transition: transform 0.15s ease;
     }
     .btn-clarifier:hover { transform: scale(1.15); }
 
     .nodal-trigger {
-      position: absolute;
-      top: 50%; left: 50%;
+      position: absolute; top: 50%; left: 50%;
       transform: translate(-50%,-50%);
       width: 58%; height: 58%;
-      background: transparent;
-      border: none; cursor: pointer; z-index: 50;
+      background: transparent; border: none;
+      cursor: pointer; z-index: 50;
     }
 
     .go-card { animation: goGlow 3s infinite ease-in-out; }
     @keyframes goGlow {
-      0%   { box-shadow: 0 0 8px 2px rgba(0,150,255,0.3); }
-      50%  { box-shadow: 0 0 20px 7px rgba(0,150,255,0.7); }
-      100% { box-shadow: 0 0 8px 2px rgba(0,150,255,0.3); }
+      0%,100% { box-shadow: 0 0 8px 2px rgba(0,150,255,0.3); }
+      50%      { box-shadow: 0 0 22px 7px rgba(0,150,255,0.7); }
     }
 
-    .cell-wrapper { animation: cellIn 0.28s ease forwards; }
+    .cell-wrapper { animation: cellIn 0.3s ease forwards; }
     @keyframes cellIn { from { opacity: 0; } to { opacity: 1; } }
 
     /* ── Nodal overlay ── */
     .nodal-backdrop {
       position: fixed; inset: 0;
-      background: rgba(8,8,12,0.9);
+      background: rgba(8,8,12,0.91);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
-      z-index: 99999;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      z-index: 999999;
+      display: flex; align-items: center; justify-content: center;
       padding: 2rem;
       animation: fadeIn 0.22s ease;
     }
@@ -189,9 +204,8 @@
     }
 
     .nodal-img {
-      width: 180px; height: 180px;
-      object-fit: cover; border-radius: 14px;
-      flex-shrink: 0;
+      width: 180px; height: 180px; object-fit: cover;
+      border-radius: 14px; flex-shrink: 0;
       box-shadow: 0 12px 40px rgba(0,0,0,0.65);
     }
     .nodal-text { flex: 1; display: flex; flex-direction: column; gap: 1rem; }
@@ -200,10 +214,8 @@
     .nodal-phrase { font-style: italic; color: #a09080; font-size: 1rem; line-height: 1.65; }
     .nodal-meaning { color: #c8bfb0; font-size: 0.95rem; line-height: 1.78; }
     .nodal-close {
-      align-self: flex-start;
-      background: transparent;
-      border: 1px solid #3a3530;
-      color: #6e6458;
+      align-self: flex-start; background: transparent;
+      border: 1px solid #3a3530; color: #6e6458;
       font-family: inherit; font-size: 0.72rem;
       letter-spacing: 0.22em; text-transform: uppercase;
       padding: 0.4rem 1.2rem; cursor: pointer;
@@ -222,7 +234,7 @@
   <div id="root"></div>
 
   <script type="text/babel">
-    const { useState, useEffect } = React;
+    const { useState, useEffect, useRef } = React;
 
     const SIZE  = 280;
     const GAP_X = -2;
@@ -230,15 +242,13 @@
     const JIT_X = 6;
     const JIT_Y = 3;
     const ROT   = 1.2;
+    const PAN_THRESHOLD = 6; // px before a touch becomes a pan
 
-    const DELTA = {
-      up:    [0, -1], down:  [0,  1],
-      left:  [-1, 0], right: [1,  0],
-    };
+    const DELTA = { up:[0,-1], down:[0,1], left:[-1,0], right:[1,0] };
 
-    function cellKey(x, y)    { return `${x},${y}`; }
-    function pickRandom(pool) { return pool[Math.floor(Math.random() * pool.length)]; }
-    function jitter(max)      { return (Math.random() - 0.5) * max; }
+    function cellKey(x,y)    { return `${x},${y}`; }
+    function pickRandom(arr) { return arr[Math.floor(Math.random()*arr.length)]; }
+    function jitter(max)     { return (Math.random()-0.5)*max; }
 
     // ── NodalOverlay ──────────────────────────────────────────────────────────
     function NodalOverlay({ card, tierLabel, onClose }) {
@@ -261,19 +271,27 @@
     // ── Card ──────────────────────────────────────────────────────────────────
     function Card({ card, cardBack, faceDown, size, zIndex, onReveal, onAddDir, onClarifier, onNodal, isClarifier }) {
       return (
-        <div className={`card-scene${card.isGo ? ' go-card' : ''}`} style={{ width: size, height: size, zIndex }}>
+        <div className={`card-scene${card.isGo ? ' go-card' : ''}`} style={{ width:size, height:size, zIndex }}>
           <div className={`card-inner${faceDown ? '' : ' revealed'}`}>
-            <div className="card-face card-back" onClick={faceDown ? onReveal : undefined} style={{ cursor: faceDown ? 'pointer' : 'default' }}>
+
+            <div className="card-face card-back"
+              onClick={faceDown ? onReveal : undefined}
+              style={{ cursor: faceDown ? 'pointer' : 'default' }}
+            >
               <img src={cardBack} alt="card back" />
             </div>
+
             <div className="card-face card-front">
               <img src={card.imageUrl} alt={card.title} />
               {!isClarifier && <>
-                <button className="btn-clarifier" onClick={e => { e.stopPropagation(); onClarifier?.(); }}>✦</button>
+                <button className="btn-clarifier"
+                  onClick={e => { e.stopPropagation(); onClarifier?.(); }}>✦</button>
                 {['up','down','left','right'].map(dir => (
-                  <button key={dir} className={`paddle paddle-${dir}`} onClick={e => { e.stopPropagation(); onAddDir?.(dir); }} />
+                  <button key={dir} className={`paddle paddle-${dir}`}
+                    onClick={e => { e.stopPropagation(); onAddDir?.(dir); }} />
                 ))}
-                <button className="nodal-trigger" onClick={e => { e.stopPropagation(); onNodal?.(); }} />
+                <button className="nodal-trigger"
+                  onClick={e => { e.stopPropagation(); onNodal?.(); }} />
               </>}
             </div>
           </div>
@@ -281,18 +299,74 @@
       );
     }
 
-    // ── Spread ────────────────────────────────────────────────────────────────
-    function Spread({ cards, cardBack, tierLabel }) {
-      function pick() { return pickRandom(cards); }
-
-      const [cells,       setCells]       = useState([{ x:0, y:0, z:0, face:cards[0], faceDown:true, jitterX:0, jitterY:0, rot:0 }]);
+    // ── Spread (infinite pan canvas) ──────────────────────────────────────────
+    function Spread({ cards, cardBack, tierLabel, active }) {
+      const [cells, setCells] = useState([
+        { x:0, y:0, z:0, face:cards[0], faceDown:true, jitterX:0, jitterY:0, rot:0 }
+      ]);
       const [clarifiers,  setClarifiers]  = useState({});
       const [goSpreads,   setGoSpreads]   = useState({});
       const [activeNodal, setActiveNodal] = useState(null);
       const [focused,     setFocused]     = useState(null);
+      const [panX,        setPanX]        = useState(0);
+      const [panY,        setPanY]        = useState(0);
+
+      const viewportRef = useRef(null);
+      const drag = useRef({ on:false, startX:0, startY:0, panX:0, panY:0, moved:false });
+
+      // ── Pan: mouse ──
+      function onMouseDown(e) {
+        if (!active) return;
+        drag.current = { on:true, startX:e.clientX, startY:e.clientY, panX, panY, moved:false };
+      }
+      function onMouseMove(e) {
+        if (!drag.current.on) return;
+        const dx = e.clientX - drag.current.startX;
+        const dy = e.clientY - drag.current.startY;
+        if (Math.abs(dx) > PAN_THRESHOLD || Math.abs(dy) > PAN_THRESHOLD) drag.current.moved = true;
+        if (drag.current.moved) { setPanX(drag.current.panX+dx); setPanY(drag.current.panY+dy); }
+      }
+      function onMouseUp() { drag.current.on = false; }
+
+      // ── Pan: touch (needs passive:false for preventDefault) ──
+      useEffect(() => {
+        const el = viewportRef.current;
+        if (!el) return;
+
+        function onTouchStart(e) {
+          if (!active) return;
+          const t = e.touches[0];
+          drag.current = { on:true, startX:t.clientX, startY:t.clientY, panX, panY, moved:false };
+        }
+        function onTouchMove(e) {
+          if (!drag.current.on) return;
+          const t = e.touches[0];
+          const dx = t.clientX - drag.current.startX;
+          const dy = t.clientY - drag.current.startY;
+          if (Math.abs(dx) > PAN_THRESHOLD || Math.abs(dy) > PAN_THRESHOLD) drag.current.moved = true;
+          if (drag.current.moved) {
+            e.preventDefault();
+            setPanX(drag.current.panX+dx);
+            setPanY(drag.current.panY+dy);
+          }
+        }
+        function onTouchEnd() { drag.current.on = false; }
+
+        el.addEventListener('touchstart',  onTouchStart,  { passive:true });
+        el.addEventListener('touchmove',   onTouchMove,   { passive:false });
+        el.addEventListener('touchend',    onTouchEnd,    { passive:true });
+        return () => {
+          el.removeEventListener('touchstart',  onTouchStart);
+          el.removeEventListener('touchmove',   onTouchMove);
+          el.removeEventListener('touchend',    onTouchEnd);
+        };
+      }, [active, panX, panY]);
+
+      // ── Spread actions ──
+      function pick() { return pickRandom(cards); }
 
       function revealCard(key) {
-        setCells(prev => prev.map(c => cellKey(c.x,c.y) === key
+        setCells(prev => prev.map(c => cellKey(c.x,c.y)===key
           ? { ...c, face:pick(), faceDown:false, jitterX:jitter(JIT_X), jitterY:jitter(JIT_Y), rot:jitter(ROT) } : c));
       }
 
@@ -314,35 +388,37 @@
 
       function triggerGoSpread(parent) {
         if (!parent.face.isGo || !parent.face.goSpread) return;
-        const key = cellKey(parent.x, parent.y);
+        const key = cellKey(parent.x,parent.y);
         if (goSpreads[key]) {
           setCells(prev => prev.filter(c => !goSpreads[key].includes(cellKey(c.x,c.y))));
           setGoSpreads(prev => { const g={...prev}; delete g[key]; return g; });
           return;
         }
-        setCells(prev => prev.map(c => cellKey(c.x,c.y)===key ? {...c, face:parent.face, faceDown:false} : c));
-        const newKeys = [];
-        parent.face.goSpread.forEach((step, i) => {
-          const nx=parent.x+step.dx, ny=parent.y+step.dy, childKey=cellKey(nx,ny);
-          newKeys.push(childKey);
-          setTimeout(() => {
-            setCells(prev => prev.find(c=>cellKey(c.x,c.y)===childKey) ? prev
-              : [...prev, { x:nx, y:ny, z:prev.length, face:pick(), faceDown:false, jitterX:jitter(JIT_X), jitterY:jitter(JIT_Y), rot:jitter(ROT) }]);
-          }, i * 350);
+        setCells(prev => prev.map(c => cellKey(c.x,c.y)===key ? {...c,face:parent.face,faceDown:false} : c));
+        const newKeys=[];
+        parent.face.goSpread.forEach((step,i) => {
+          const nx=parent.x+step.dx, ny=parent.y+step.dy, ck=cellKey(nx,ny);
+          newKeys.push(ck);
+          setTimeout(()=>{
+            setCells(prev => prev.find(c=>cellKey(c.x,c.y)===ck) ? prev
+              : [...prev,{x:nx,y:ny,z:prev.length,face:pick(),faceDown:false,jitterX:jitter(JIT_X),jitterY:jitter(JIT_Y),rot:jitter(ROT)}]);
+          }, i*350);
         });
-        setGoSpreads(prev => ({ ...prev, [key]: newKeys }));
+        setGoSpreads(prev => ({...prev,[key]:newKeys}));
       }
 
+      // ── Keyboard ──
       useEffect(() => {
+        if (!active) return;
         function handleKey(e) {
           if (!focused) return;
           switch(e.key) {
-            case 'ArrowUp':    case 'w': addNeighbor(focused.x,focused.y,'up');    break;
-            case 'ArrowDown':  case 's': addNeighbor(focused.x,focused.y,'down');  break;
-            case 'ArrowLeft':  case 'a': addNeighbor(focused.x,focused.y,'left');  break;
-            case 'ArrowRight': case 'd': addNeighbor(focused.x,focused.y,'right'); break;
+            case 'ArrowUp':   case 'w': addNeighbor(focused.x,focused.y,'up');    break;
+            case 'ArrowDown': case 's': addNeighbor(focused.x,focused.y,'down');  break;
+            case 'ArrowLeft': case 'a': addNeighbor(focused.x,focused.y,'left');  break;
+            case 'ArrowRight':case 'd': addNeighbor(focused.x,focused.y,'right'); break;
             case 'Enter': revealCard(cellKey(focused.x,focused.y)); break;
-            case ' ': e.preventDefault(); if (!focused.faceDown) setActiveNodal(focused.face); break;
+            case ' ': e.preventDefault(); if(!focused.faceDown) setActiveNodal(focused.face); break;
             case 'c': spawnClarifier(focused); break;
             case 'x': closeClarifier(focused.x,focused.y); break;
             case 'Escape': setActiveNodal(null); setClarifiers({}); setGoSpreads({}); break;
@@ -351,24 +427,41 @@
         }
         window.addEventListener('keydown', handleKey);
         return () => window.removeEventListener('keydown', handleKey);
-      }, [focused, clarifiers, goSpreads]);
+      }, [active, focused, clarifiers, goSpreads]);
 
-      const minX=Math.min(...cells.map(c=>c.x)), maxX=Math.max(...cells.map(c=>c.x));
-      const minY=Math.min(...cells.map(c=>c.y)), maxY=Math.max(...cells.map(c=>c.y));
-      const spreadW=(maxX-minX+1)*(SIZE+GAP_X), spreadH=(maxY-minY+1)*(SIZE+GAP_Y);
-
+      // ── Render ──
       return (
-        <div style={{ position:'relative', width:'100%', height:'100%', overflow:'auto', paddingTop:80, paddingBottom:300 }}>
-          <div style={{ position:'relative', width:spreadW, height:spreadH, margin:'0 auto' }}>
+        <div
+          ref={viewportRef}
+          className="pan-viewport"
+          style={{ cursor: drag.current.moved ? 'grabbing' : active ? 'grab' : 'default' }}
+          onMouseDown={onMouseDown}
+          onMouseMove={onMouseMove}
+          onMouseUp={onMouseUp}
+          onMouseLeave={onMouseUp}
+        >
+          {/* Infinite canvas — origin at center */}
+          <div className="pan-canvas" style={{ transform:`translate(${panX}px,${panY}px)` }}>
 
             {cells.map(cell => {
-              const key=cellKey(cell.x,cell.y);
-              const left=(cell.x-minX)*(SIZE+GAP_X)+cell.jitterX;
-              const top=(cell.y-minY)*(SIZE+GAP_Y)+cell.jitterY;
-              const isFocused=focused && cellKey(focused.x,focused.y)===key;
+              const key   = cellKey(cell.x, cell.y);
+              const left  = cell.x*(SIZE+GAP_X) - SIZE/2 + cell.jitterX;
+              const top   = cell.y*(SIZE+GAP_Y) - SIZE/2 + cell.jitterY;
+              const isFoc = focused && cellKey(focused.x,focused.y)===key;
+
               return (
-                <div key={key} className="cell-wrapper" style={{ position:'absolute', left, top, transform:`rotate(${cell.rot}deg)`, zIndex:cell.z, width:SIZE, height:SIZE, outline:isFocused?'2px solid rgba(201,168,76,0.55)':'none', borderRadius:16 }} onClick={()=>setFocused(cell)}>
-                  <Card card={cell.face} cardBack={cardBack} faceDown={cell.faceDown} size={SIZE} zIndex={cell.z}
+                <div key={key} className="cell-wrapper" style={{
+                  position:'absolute', left, top,
+                  transform:`rotate(${cell.rot}deg)`,
+                  zIndex:cell.z, width:SIZE, height:SIZE,
+                  outline:isFoc?'2px solid rgba(201,168,76,0.55)':'none',
+                  borderRadius:16,
+                }}
+                onClick={()=>{ if(!drag.current.moved && active) setFocused(cell); }}
+                >
+                  <Card
+                    card={cell.face} cardBack={cardBack}
+                    faceDown={cell.faceDown} size={SIZE} zIndex={cell.z}
                     onReveal={()=>revealCard(key)}
                     onAddDir={dir=>addNeighbor(cell.x,cell.y,dir)}
                     onClarifier={()=>spawnClarifier(cell)}
@@ -379,19 +472,32 @@
               );
             })}
 
-            {Object.entries(clarifiers).map(([key, clarifier]) => {
-              if (!clarifier) return null;
+            {Object.entries(clarifiers).map(([key,clarifier])=>{
+              if(!clarifier) return null;
               const [x,y]=key.split(',').map(Number);
+              const left=x*(SIZE+GAP_X)-SIZE/2-40;
+              const top =y*(SIZE+GAP_Y)-SIZE/2-40;
               return (
-                <div key={`clar-${key}`} style={{ position:'absolute', left:(x-minX)*(SIZE+GAP_X)-40, top:(y-minY)*(SIZE+GAP_Y)-40, zIndex:9999 }}>
-                  <button onClick={()=>closeClarifier(x,y)} style={{ position:'absolute', top:-12, left:-12, background:'#111', color:'#fff', borderRadius:'50%', width:24, height:24, border:'1px solid #333', cursor:'pointer', zIndex:10000, fontSize:11, lineHeight:'22px', textAlign:'center', padding:0 }}>✕</button>
-                  <Card card={clarifier} cardBack={cardBack} faceDown={false} size={SIZE*0.75} zIndex={9999} isClarifier={true} onClarifier={()=>setActiveNodal(clarifier)} />
+                <div key={`clar-${key}`} style={{position:'absolute',left,top,zIndex:9999}}>
+                  <button onClick={()=>closeClarifier(x,y)} style={{
+                    position:'absolute',top:-12,left:-12,
+                    background:'#111',color:'#fff',
+                    borderRadius:'50%',width:24,height:24,
+                    border:'1px solid #333',cursor:'pointer',
+                    zIndex:10000,fontSize:11,
+                    lineHeight:'22px',textAlign:'center',padding:0,
+                  }}>✕</button>
+                  <Card card={clarifier} cardBack={cardBack} faceDown={false}
+                    size={SIZE*0.75} zIndex={9999} isClarifier={true}
+                    onClarifier={()=>setActiveNodal(clarifier)} />
                 </div>
               );
             })}
           </div>
 
-          {activeNodal && <NodalOverlay card={activeNodal} tierLabel={tierLabel} onClose={()=>setActiveNodal(null)} />}
+          {activeNodal && (
+            <NodalOverlay card={activeNodal} tierLabel={tierLabel} onClose={()=>setActiveNodal(null)} />
+          )}
         </div>
       );
     }
@@ -400,11 +506,17 @@
     function TierNav({ tiers, currentIndex, onNavigate }) {
       return (
         <div className="tier-nav">
-          <button className="tier-btn" onClick={()=>onNavigate(currentIndex-1)} disabled={currentIndex===0}>◂</button>
+          <button className="tier-btn"
+            onClick={()=>onNavigate(currentIndex-1)}
+            disabled={currentIndex===0}>◂</button>
           <span className="tier-label">{tiers[currentIndex].id}</span>
-          <button className="tier-btn" onClick={()=>onNavigate(currentIndex+1)} disabled={currentIndex===tiers.length-1}>▸</button>
+          <button className="tier-btn"
+            onClick={()=>onNavigate(currentIndex+1)}
+            disabled={currentIndex===tiers.length-1}>▸</button>
           <div className="tier-pips">
-            {tiers.map((_,i) => <div key={i} className={`tier-pip${i===currentIndex?' active':''}`} />)}
+            {tiers.map((_,i)=>(
+              <div key={i} className={`tier-pip${i===currentIndex?' active':''}`} />
+            ))}
           </div>
         </div>
       );
@@ -415,37 +527,64 @@
       const [config,    setConfig]    = useState(null);
       const [error,     setError]     = useState(null);
       const [tierIndex, setTierIndex] = useState(0);
-      const [spreadKey, setSpreadKey] = useState(0);
-      const [phase,     setPhase]     = useState('idle');
 
-      useEffect(() => {
+      useEffect(()=>{
         fetch('./cards.json')
-          .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+          .then(r=>{ if(!r.ok) throw new Error(r.status); return r.json(); })
           .then(setConfig)
-          .catch(err => setError(err.message));
-      }, []);
-
-      function navigateTier(newIndex) {
-        if (!config || newIndex < 0 || newIndex >= config.tiers.length) return;
-        setPhase('exiting');
-        setTimeout(() => {
-          setTierIndex(newIndex);
-          setSpreadKey(k => k + 1);
-          setPhase('entering');
-          setTimeout(() => setPhase('idle'), 50);
-        }, 350);
-      }
+          .catch(err=>setError(err.message));
+      },[]);
 
       if (error)   return <div className="loading">could not load cards.json — {error}</div>;
       if (!config) return <div className="loading">loading…</div>;
 
-      const currentTier = config.tiers[tierIndex];
+      // Tier depth style — current fills screen, previous scale down behind it
+      function tierStyle(i) {
+        const depth = tierIndex - i; // 0=current, +ve=behind, -ve=ahead
+        const T = 'transform 0.7s cubic-bezier(0.4,0.2,0.2,1), opacity 0.7s ease';
+
+        if (depth < 0) return {   // not yet reached — hidden above
+          opacity: 0,
+          transform: 'scale(1.06)',
+          pointerEvents: 'none',
+          zIndex: 0,
+          transition: T,
+        };
+        if (depth === 0) return { // current
+          opacity: 1,
+          transform: 'scale(1)',
+          pointerEvents: 'all',
+          zIndex: 10,
+          transition: T,
+        };
+        // behind — stair-step back into distance
+        const scale   = Math.pow(0.72, depth);
+        const opacity = Math.max(0.06, 0.34 - (depth-1)*0.14);
+        return {
+          opacity,
+          transform: `scale(${scale.toFixed(3)})`,
+          pointerEvents: 'none',
+          zIndex: 10 - depth,
+          transition: T,
+        };
+      }
 
       return (
         <div style={{ height:'100vh', background:'#0e0e12' }}>
-          <TierNav tiers={config.tiers} currentIndex={tierIndex} onNavigate={navigateTier} />
-          <div className={`spread-wrap${phase==='exiting'?' exiting':phase==='entering'?' entering':''}`}>
-            <Spread key={spreadKey} cards={currentTier.cards} cardBack={config.cardBack} tierLabel={currentTier.id} />
+          <TierNav tiers={config.tiers} currentIndex={tierIndex} onNavigate={setTierIndex} />
+
+          {/* All tiers stay mounted — current in front, previous shrink behind */}
+          <div className="tier-stack">
+            {config.tiers.map((tier,i)=>(
+              <div key={tier.id} className="tier-layer" style={tierStyle(i)}>
+                <Spread
+                  cards={tier.cards}
+                  cardBack={config.cardBack}
+                  tierLabel={tier.id}
+                  active={i===tierIndex}
+                />
+              </div>
+            ))}
           </div>
         </div>
       );
