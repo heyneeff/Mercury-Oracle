@@ -1,0 +1,43 @@
+{
+  "name": "Mercury Oracle",
+  "cardBack": "./cards/card-back.png",
+  "cards": [
+    {
+      "id": "01",
+      "title": "The Messenger",
+      "imageUrl": "./cards/01.jpg",
+      "phrase": "Words arrive before their meaning.",
+      "meaning": "A signal is in transit. Something you have been waiting to hear is already on its way. Stay receptive — the channel is open."
+    },
+    {
+      "id": "02",
+      "title": "The Mirror",
+      "imageUrl": "./cards/02.jpg",
+      "phrase": "What you see is what is seeing.",
+      "meaning": "The situation reflects something interior. Look past the surface event to what it is showing you about yourself."
+    },
+    {
+      "id": "03",
+      "title": "The Threshold",
+      "imageUrl": "./cards/03.jpg",
+      "phrase": "One foot is already through.",
+      "meaning": "A crossing is underway. Hesitation now costs more than it saves. The door is open; trust your original impulse."
+    },
+    {
+      "id": "go-01",
+      "title": "The Spread",
+      "imageUrl": "./cards/go-01.jpg",
+      "phrase": "Everything at once.",
+      "meaning": "A full opening. All positions are in play simultaneously.",
+      "isGo": true,
+      "goSpread": [
+        { "dx": -1, "dy":  0 },
+        { "dx":  1, "dy":  0 },
+        { "dx":  0, "dy": -1 },
+        { "dx":  0, "dy":  1 },
+        { "dx": -1, "dy": -1 },
+        { "dx":  1, "dy": -1 }
+      ]
+    }
+  ]
+}
