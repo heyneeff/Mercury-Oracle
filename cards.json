@@ -1,46 +1,625 @@
 {
   "name": "Mercury Oracle",
-  "cardBack": "./cards/card-back.png",
+  "cardBack": "https://mercuryapp.imneeff.com/card-back.jpg",
   "tiers": [
     {
       "id": "I",
       "cards": [
         {
-          "id": "01",
-          "title": "The Messenger",
-          "imageUrl": "./cards/01.jpg",
-          "phrase": "Words arrive before their meaning.",
-          "meaning": "A signal is in transit. Something you have been waiting to hear is already on its way. Stay receptive — the channel is open."
+          "id": "go-down-the-tunnel",
+          "title": "Go Down the Tunnel",
+          "phrase": "go down the tunnel",
+          "meaning": "Face the challenge ahead by going through darkness to find the light\u2014uncertainty is a path to discovery, so proceed bravely, guided by your inner lantern.",
+          "imageUrl": "https://mercuryapp.imneeff.com/go-down-the-tunnel.jpg"
         },
         {
-          "id": "02",
-          "title": "The Mirror",
-          "imageUrl": "./cards/02.jpg",
-          "phrase": "What you see is what is seeing.",
-          "meaning": "The situation reflects something interior. Look past the surface event to what it is showing you about yourself."
+          "id": "go-over-the-bridge",
+          "title": "Go Over the Bridge",
+          "phrase": "go over the bridge",
+          "meaning": "This is a moment of transition\u2014thoughts and emotions are coming together, allowing you to cross into new understanding or opportunity.",
+          "imageUrl": "https://mercuryapp.imneeff.com/go-over-the-bridge.jpg"
         },
         {
-          "id": "03",
-          "title": "The Threshold",
-          "imageUrl": "./cards/03.jpg",
-          "phrase": "One foot is already through.",
-          "meaning": "A crossing is underway. Hesitation now costs more than it saves. The door is open; trust your original impulse."
+          "id": "go-through-the-gateway",
+          "title": "Go Through the Gateway",
+          "phrase": "go through the gateway",
+          "meaning": "A door of opportunity is before you; unlock it with courage and action, and enter a new reality or life phase.",
+          "imageUrl": "https://mercuryapp.imneeff.com/go-through-the-gateway.jpg"
         },
         {
-          "id": "go-I",
-          "title": "The Spread",
-          "imageUrl": "./cards/go-01.jpg",
-          "phrase": "Everything at once.",
-          "meaning": "A full opening. All positions are in play.",
-          "isGo": true,
-          "goSpread": [
-            { "dx": -1, "dy":  0 },
-            { "dx":  1, "dy":  0 },
-            { "dx":  0, "dy": -1 },
-            { "dx":  0, "dy":  1 },
-            { "dx": -1, "dy": -1 },
-            { "dx":  1, "dy": -1 }
-          ]
+          "id": "go-through-the-mirror",
+          "title": "Go Through the Mirror",
+          "phrase": "go through the mirror",
+          "meaning": "Self-reflection and relationships are in focus; see yourself in others and seek new perspectives to deepen understanding of who you are.",
+          "imageUrl": "https://mercuryapp.imneeff.com/go-through-the-mirror.jpg"
+        },
+        {
+          "id": "go-to-the-crossroads",
+          "title": "Go to the Crossroads",
+          "phrase": "go to the crossroads",
+          "meaning": "It's time to make a significant choice\u2014consider your options carefully, as your direction now will shape your path and destiny.",
+          "imageUrl": "https://mercuryapp.imneeff.com/go-to-the-crossroads.jpg"
+        },
+        {
+          "id": "the-sun",
+          "title": "The Sun",
+          "phrase": "the sun",
+          "meaning": "Brilliance, success, vitality, and joy are yours. Embrace optimism and act confidently; positivity will see you through even the darkest times.",
+          "imageUrl": "https://mercuryapp.imneeff.com/the-sun.jpg"
+        },
+        {
+          "id": "mercury",
+          "title": "Mercury",
+          "phrase": "mercury",
+          "meaning": "Communication and adaptability are highlighted\u2014be clear, curious, and flexible, and welcome shifts or new ideas.",
+          "imageUrl": "https://mercuryapp.imneeff.com/mercury.jpg"
+        },
+        {
+          "id": "venus",
+          "title": "Venus",
+          "phrase": "venus",
+          "meaning": "Love, beauty, pleasure, and harmony invite joy into your life; cultivate relationships and indulge in creative or aesthetic pursuits.",
+          "imageUrl": "https://mercuryapp.imneeff.com/venus.jpg"
+        },
+        {
+          "id": "earth",
+          "title": "Earth",
+          "phrase": "earth",
+          "meaning": "Ground yourself in nurturing, connection, and community\u2014find fulfillment through caring for others and the world around you.",
+          "imageUrl": "https://mercuryapp.imneeff.com/earth.jpg"
+        },
+        {
+          "id": "the-moon",
+          "title": "The Moon",
+          "phrase": "the moon",
+          "meaning": "Dreams, illusions, and intuition come to the fore. Trust your instincts, embrace the mysterious, and beware of projections or fears.",
+          "imageUrl": "https://mercuryapp.imneeff.com/the-moon.jpg"
+        },
+        {
+          "id": "mars",
+          "title": "Mars",
+          "phrase": "mars",
+          "meaning": "Action, drive, and passion are required. Assert yourself, channel energy constructively, and move boldly towards your goals.",
+          "imageUrl": "https://mercuryapp.imneeff.com/mars.jpg"
+        },
+        {
+          "id": "jupiter",
+          "title": "Jupiter",
+          "phrase": "jupiter",
+          "meaning": "Luck, growth, and abundance surround you\u2014expand your horizons, pursue wisdom, and seize opportunities for spiritual and personal advancement.",
+          "imageUrl": "https://mercuryapp.imneeff.com/jupiter.jpg"
+        },
+        {
+          "id": "saturn",
+          "title": "Saturn",
+          "phrase": "saturn",
+          "meaning": "Discipline, responsibility, and structure are necessary. Honor your commitments, acknowledge limitations, and persist with maturity.",
+          "imageUrl": "https://mercuryapp.imneeff.com/saturn.jpg"
+        },
+        {
+          "id": "uranus",
+          "title": "Uranus",
+          "phrase": "uranus",
+          "meaning": "Expect sudden change or awakening\u2014break patterns, embrace innovation, and allow breakthroughs to disrupt what is stagnant.",
+          "imageUrl": "https://mercuryapp.imneeff.com/uranus.jpg"
+        },
+        {
+          "id": "neptune",
+          "title": "Neptune",
+          "phrase": "neptune",
+          "meaning": "Dreams, spirituality, and inspiration\u2014dissolve boundaries, use imagination, but beware of illusions or self-deception.",
+          "imageUrl": "https://mercuryapp.imneeff.com/neptune.jpg"
+        },
+        {
+          "id": "pluto",
+          "title": "Pluto",
+          "phrase": "pluto",
+          "meaning": "Transformation and rebirth\u2014embrace fundamental change, face your deepest fears, and allow what no longer serves you to be released.",
+          "imageUrl": "https://mercuryapp.imneeff.com/pluto.jpg"
+        },
+        {
+          "id": "connect-to-higher-states",
+          "title": "Connect to Higher States",
+          "phrase": "connect to higher states",
+          "meaning": "Open your crown to spirit and clarity. Balance spiritual insight with earthly awareness and allow wisdom to enter.",
+          "imageUrl": "https://mercuryapp.imneeff.com/connect-to-higher-states.jpg"
+        },
+        {
+          "id": "activate-your-intuition",
+          "title": "Activate Your Intuition",
+          "phrase": "activate your intuition",
+          "meaning": "Trust your inner knowing and psychic senses\u2014clarify any situation by turning inward and letting intuition be your guide.",
+          "imageUrl": "https://mercuryapp.imneeff.com/activate-your-intuition.jpg"
+        },
+        {
+          "id": "speak-your-truth",
+          "title": "Speak Your Truth",
+          "phrase": "speak your truth",
+          "meaning": "Authentically express yourself; your words shape reality, so communicate honestly and with clarity.",
+          "imageUrl": "https://mercuryapp.imneeff.com/speak-your-truth.jpg"
+        },
+        {
+          "id": "follow-your-heart",
+          "title": "Follow Your Heart",
+          "phrase": "follow your heart",
+          "meaning": "Operate from compassion and openness\u2014self-love and forgiveness are keys to joy and fulfillment.",
+          "imageUrl": "https://mercuryapp.imneeff.com/follow-your-heart.jpg"
+        },
+        {
+          "id": "trust-your-gut",
+          "title": "Trust Your Gut",
+          "phrase": "trust your gut",
+          "meaning": "Feel into your body\u2019s wisdom\u2014intuition, not logic, is your best guide to vital and authentic choices.",
+          "imageUrl": "https://mercuryapp.imneeff.com/trust-your-gut.jpg"
+        },
+        {
+          "id": "create",
+          "title": "Create",
+          "phrase": "create",
+          "meaning": "Embrace creative energy through play, making, and expression\u2014wellness arises from honoring your creative nature.",
+          "imageUrl": "https://mercuryapp.imneeff.com/create.jpg"
+        },
+        {
+          "id": "ground-yourself",
+          "title": "Ground Yourself",
+          "phrase": "ground yourself",
+          "meaning": "Balance and connect by restoring your root\u2014nourish yourself, find security, and tend to basic needs.",
+          "imageUrl": "https://mercuryapp.imneeff.com/ground-yourself.jpg"
+        },
+        {
+          "id": "find-air",
+          "title": "Find Air",
+          "phrase": "find air",
+          "meaning": "Let intellect, curiosity, and freedom flow. Communicate, think creatively, and allow new ideas to circulate.",
+          "imageUrl": "https://mercuryapp.imneeff.com/find-air.jpg"
+        },
+        {
+          "id": "find-earth",
+          "title": "Find Earth",
+          "phrase": "find earth",
+          "meaning": "Stabilize with patience, harmony, and practicality. Stay grounded, nurture abundance, and seek balance.",
+          "imageUrl": "https://mercuryapp.imneeff.com/find-earth.jpg"
+        },
+        {
+          "id": "find-fire",
+          "title": "Find Fire",
+          "phrase": "find fire",
+          "meaning": "Embody transformation and power\u2014channel your energy to ignite change and pursue your passions.",
+          "imageUrl": "https://mercuryapp.imneeff.com/find-fire.jpg"
+        },
+        {
+          "id": "find-spirit",
+          "title": "Find Spirit",
+          "phrase": "find spirit",
+          "meaning": "Connect to the subtle, animating essence of life\u2014divine intelligence guides all; tune in to spiritual wisdom.",
+          "imageUrl": "https://mercuryapp.imneeff.com/find-spirit.jpg"
+        },
+        {
+          "id": "find-water",
+          "title": "Find Water",
+          "phrase": "find water",
+          "meaning": "Let emotion and adaptability flow\u2014be gentle, receptive, and deep; allow feelings to guide your path.",
+          "imageUrl": "https://mercuryapp.imneeff.com/find-water.jpg"
+        },
+        {
+          "id": "stop",
+          "title": "Stop",
+          "phrase": "stop",
+          "meaning": "Cease action and reconsider\u2014this is not the way forward. Sometimes the best move is not to play at all.",
+          "imageUrl": "https://mercuryapp.imneeff.com/stop.jpg"
+        },
+        {
+          "id": "go",
+          "title": "Go",
+          "phrase": "go",
+          "meaning": "Take action and move towards your goals, even if progress is slow. Momentum is key.",
+          "imageUrl": "https://mercuryapp.imneeff.com/go.jpg"
+        },
+        {
+          "id": "yes",
+          "title": "Yes",
+          "phrase": "yes",
+          "meaning": "Affirmation\u2014move forward confidently, accept opportunities, and invite positivity into your life.",
+          "imageUrl": "https://mercuryapp.imneeff.com/yes.jpg"
+        },
+        {
+          "id": "no",
+          "title": "No",
+          "phrase": "no",
+          "meaning": "A negative response\u2014decline, set boundaries, or recognize that rejection opens space for greater things.",
+          "imageUrl": "https://mercuryapp.imneeff.com/no.jpg"
+        },
+        {
+          "id": "all-one-or-none",
+          "title": "All One or None",
+          "phrase": "all one or none",
+          "meaning": "Seek community and collaboration\u2014unity and collective action enhance outcomes for everyone.",
+          "imageUrl": "https://mercuryapp.imneeff.com/all-one-or-none.jpg"
+        },
+        {
+          "id": "avoid-all-traps",
+          "title": "Avoid All Traps",
+          "phrase": "avoid all traps",
+          "meaning": "Exercise discernment and caution\u2014look for hidden motives or pitfalls and plan to sidestep them.",
+          "imageUrl": "https://mercuryapp.imneeff.com/avoid-all-traps.jpg"
+        },
+        {
+          "id": "avoid-your-fate",
+          "title": "Avoid Your Fate",
+          "phrase": "avoid your fate",
+          "meaning": "Take active steps to shape your destiny\u2014refuse to be passive or fall into old patterns; you have the power to change.",
+          "imageUrl": "https://mercuryapp.imneeff.com/avoid-your-fate.jpg"
+        },
+        {
+          "id": "be-kind",
+          "title": "Be Kind",
+          "phrase": "be kind",
+          "meaning": "Practice kindness without self-interest. Compassion and generosity are powerful forces for healing.",
+          "imageUrl": "https://mercuryapp.imneeff.com/be-kind.jpg"
+        },
+        {
+          "id": "be-open",
+          "title": "Be Open",
+          "phrase": "be open",
+          "meaning": "Adopt a beginner\u2019s mind\u2014approach situations with curiosity, humility, and willingness to learn.",
+          "imageUrl": "https://mercuryapp.imneeff.com/be-open.jpg"
+        },
+        {
+          "id": "be-yourself",
+          "title": "Be Yourself",
+          "phrase": "be yourself",
+          "meaning": "Express your true self\u2014honor your individuality and prioritize inner authenticity over external expectations.",
+          "imageUrl": "https://mercuryapp.imneeff.com/be-yourself.jpg"
+        },
+        {
+          "id": "burn-your-boat",
+          "title": "Burn Your Boat",
+          "phrase": "burn your boat",
+          "meaning": "Make a decisive commitment and eliminate any path back\u2014total devotion brings new creative solutions.",
+          "imageUrl": "https://mercuryapp.imneeff.com/burn-your-boat.jpg"
+        },
+        {
+          "id": "call-upon-the-dead",
+          "title": "Call Upon the Dead",
+          "phrase": "call upon the dead",
+          "meaning": "Connect with ancestors or personal heritage for wisdom and support; ritual and remembrance bring transformation.",
+          "imageUrl": "https://mercuryapp.imneeff.com/call-upon-the-dead.jpg"
+        },
+        {
+          "id": "clear-your-mind",
+          "title": "Clear Your Mind",
+          "phrase": "clear your mind",
+          "meaning": "Release mental clutter to restore presence\u2014clarity brings creativity and access to intuitive answers.",
+          "imageUrl": "https://mercuryapp.imneeff.com/clear-your-mind.jpg"
+        },
+        {
+          "id": "conceal-yourself",
+          "title": "Conceal Yourself",
+          "phrase": "conceal yourself",
+          "meaning": "Blend into your surroundings and find strength in openness and transparency rather than hiding.",
+          "imageUrl": "https://mercuryapp.imneeff.com/conceal-yourself.jpg"
+        },
+        {
+          "id": "connect-to-your-body",
+          "title": "Connect to Your Body",
+          "phrase": "connect to your body",
+          "meaning": "Slow down, notice, and appreciate your physical self\u2014body awareness anchors and heals.",
+          "imageUrl": "https://mercuryapp.imneeff.com/connect-to-your-body.jpg"
+        },
+        {
+          "id": "consolidate-your-bodies",
+          "title": "Consolidate Your Bodies",
+          "phrase": "consolidate your bodies",
+          "meaning": "Organize your inner and outer life; bring all aspects of yourself into harmony for health and progress.",
+          "imageUrl": "https://mercuryapp.imneeff.com/consolidate-your-bodies.jpg"
+        },
+        {
+          "id": "contact-the-other",
+          "title": "Contact the Other",
+          "phrase": "contact the other",
+          "meaning": "Reach out to that which is different or unknown\u2014connection with guides, higher knowledge, or new influences is possible.",
+          "imageUrl": "https://mercuryapp.imneeff.com/contact-the-other.jpg"
+        },
+        {
+          "id": "dispel-all-illusions",
+          "title": "Dispel All Illusions",
+          "phrase": "dispel all illusions",
+          "meaning": "See through deception and self-delusion\u2014look directly at difficult truths to free yourself from falsehood.",
+          "imageUrl": "https://mercuryapp.imneeff.com/dispel-all-illusions.jpg"
+        },
+        {
+          "id": "dissolve-all-notions-of-self",
+          "title": "Dissolve All Notions of Self",
+          "phrase": "dissolve all notions of self",
+          "meaning": "Embrace change by releasing limiting ideas or attachments\u2014rebirth and growth follow surrender.",
+          "imageUrl": "https://mercuryapp.imneeff.com/dissolve-all-notions-of-self.jpg"
+        },
+        {
+          "id": "do-not-forget",
+          "title": "Do Not Forget",
+          "phrase": "do not forget",
+          "meaning": "Pay attention to what needs remembering\u2014this card is a prompt to pull another card for insight.",
+          "imageUrl": "https://mercuryapp.imneeff.com/do-not-forget.jpg"
+        },
+        {
+          "id": "do-not-sleep",
+          "title": "Do Not Sleep",
+          "phrase": "do not sleep",
+          "meaning": "Stay vigilant and attentive\u2014this is a time for progress, not rest. Opportunities or challenges may arise unexpectedly.",
+          "imageUrl": "https://mercuryapp.imneeff.com/do-not-sleep.jpg"
+        },
+        {
+          "id": "embody-light",
+          "title": "Embody Light",
+          "phrase": "embody light",
+          "meaning": "Shine positivity and joy\u2014overcome obstacles by letting your inner light radiate outward to others.",
+          "imageUrl": "https://mercuryapp.imneeff.com/embody-light.jpg"
+        },
+        {
+          "id": "embrace-the-void",
+          "title": "Embrace the Void",
+          "phrase": "embrace the void",
+          "meaning": "Sit with emptiness and silence; transformation and new beginnings arise from this space of nothingness.",
+          "imageUrl": "https://mercuryapp.imneeff.com/embrace-the-void.jpg"
+        },
+        {
+          "id": "employ-chaos",
+          "title": "Employ Chaos",
+          "phrase": "employ chaos",
+          "meaning": "Let go of rigid plans\u2014engage creativity, spontaneity, and new possibilities by playing with the unknown.",
+          "imageUrl": "https://mercuryapp.imneeff.com/employ-chaos.jpg"
+        },
+        {
+          "id": "find-others",
+          "title": "Find Others",
+          "phrase": "find others",
+          "meaning": "Reach out and build connections. Community, collaboration, or new partnerships will fuel your journey.",
+          "imageUrl": "https://mercuryapp.imneeff.com/find-others.jpg"
+        },
+        {
+          "id": "harmonize-with-patterns",
+          "title": "Harmonize with Patterns",
+          "phrase": "harmonize with patterns",
+          "meaning": "Notice and work with natural cycles and repetition in your life\u2014cooperate with the flow to create harmony.",
+          "imageUrl": "https://mercuryapp.imneeff.com/harmonize-with-patterns.jpg"
+        },
+        {
+          "id": "give-patience-to-the-road",
+          "title": "Give Patience to the Road",
+          "phrase": "give patience to the road",
+          "meaning": "Be patient with the journey; everything develops in its own time and rushing will only slow or hinder you.",
+          "imageUrl": "https://mercuryapp.imneeff.com/give-patience-to-the-road.jpg"
+        },
+        {
+          "id": "give-something-away",
+          "title": "Give Something Away",
+          "phrase": "give something away",
+          "meaning": "Release and give freely\u2014offering something without expectation of return is necessary for liberation.",
+          "imageUrl": "https://mercuryapp.imneeff.com/give-something-away.jpg"
+        },
+        {
+          "id": "immanentize-the-eschaton",
+          "title": "Immanentize the Eschaton",
+          "phrase": "immanentize the eschaton",
+          "meaning": "Merge spirit and matter; transcend disorder through love, peace, and extraordinary insight.",
+          "imageUrl": "https://mercuryapp.imneeff.com/immanentize-the-eschaton.jpg"
+        },
+        {
+          "id": "know-divine-timing",
+          "title": "Know Divine Timing",
+          "phrase": "know divine timing",
+          "meaning": "Trust the timing of events; everything unfolds as it should\u2014allow and accept the present moment.",
+          "imageUrl": "https://mercuryapp.imneeff.com/know-divine-timing.jpg"
+        },
+        {
+          "id": "move-your-body",
+          "title": "Move Your Body",
+          "phrase": "move your body",
+          "meaning": "Actively shift your energy\u2014change, exercise, or travel will break stagnation and foster healing.",
+          "imageUrl": "https://mercuryapp.imneeff.com/move-your-body.jpg"
+        },
+        {
+          "id": "observe-the-observer",
+          "title": "Observe the Observer",
+          "phrase": "observe the observer",
+          "meaning": "Contemplate your own awareness; realize the unity of self and experience, and reflect deeply.",
+          "imageUrl": "https://mercuryapp.imneeff.com/observe-the-observer.jpg"
+        },
+        {
+          "id": "organize",
+          "title": "Organize",
+          "phrase": "organize",
+          "meaning": "Bring order to your inner and outer world; clear and intentional organization supports progress.",
+          "imageUrl": "https://mercuryapp.imneeff.com/organize.jpg"
+        },
+        {
+          "id": "plant-seeds",
+          "title": "Plant Seeds",
+          "phrase": "plant seeds",
+          "meaning": "Begin something new\u2014start with small steps, nurture your ideas patiently, and trust them to grow over time.",
+          "imageUrl": "https://mercuryapp.imneeff.com/plant-seeds.jpg"
+        },
+        {
+          "id": "practice-dreaming",
+          "title": "Practice Dreaming",
+          "phrase": "practice dreaming",
+          "meaning": "Take time to imagine and embody your deepest dreams. Manifestation starts with vision and feeling.",
+          "imageUrl": "https://mercuryapp.imneeff.com/practice-dreaming.jpg"
+        },
+        {
+          "id": "read-your-omens",
+          "title": "Read Your Omens",
+          "phrase": "read your omens",
+          "meaning": "Notice synchronicities and intuitive nudges\u2014guidance is present in every sign and symbol.",
+          "imageUrl": "https://mercuryapp.imneeff.com/read-your-omens.jpg"
+        },
+        {
+          "id": "receive-your-gifts",
+          "title": "Receive Your Gifts",
+          "phrase": "receive your gifts",
+          "meaning": "Allow yourself to accept abundance and blessings that are freely given\u2014embrace generosity inwardly and outwardly.",
+          "imageUrl": "https://mercuryapp.imneeff.com/receive-your-gifts.jpg"
+        },
+        {
+          "id": "recognize-other-realities",
+          "title": "Recognize Other Realities",
+          "phrase": "recognize other realities",
+          "meaning": "Empathize with alternate perspectives\u2014be open to different outcomes, worlds, or perceptions.",
+          "imageUrl": "https://mercuryapp.imneeff.com/recognize-other-realities.jpg"
+        },
+        {
+          "id": "reformulate-your-approach",
+          "title": "Reformulate Your Approach",
+          "phrase": "reformulate your approach",
+          "meaning": "Try a new angle or perspective\u2014innovative questions and courageous inquiry bring new solutions.",
+          "imageUrl": "https://mercuryapp.imneeff.com/reformulate-your-approach.jpg"
+        },
+        {
+          "id": "retrace-your-steps",
+          "title": "Retrace Your Steps",
+          "phrase": "retrace your steps",
+          "meaning": "Review your history for insight; the solution may lie in your past experience or lesson already learned.",
+          "imageUrl": "https://mercuryapp.imneeff.com/retrace-your-steps.jpg"
+        },
+        {
+          "id": "return-to-love",
+          "title": "Return to Love",
+          "phrase": "return to love",
+          "meaning": "Healing and resolution are found in compassion, forgiveness, and honest self-love.",
+          "imageUrl": "https://mercuryapp.imneeff.com/return-to-love.jpg"
+        },
+        {
+          "id": "rise-above-it",
+          "title": "Rise Above It",
+          "phrase": "rise above it",
+          "meaning": "View your challenges from a higher vantage point\u2014what seemed like a problem may be a hidden blessing.",
+          "imageUrl": "https://mercuryapp.imneeff.com/rise-above-it.jpg"
+        },
+        {
+          "id": "search-for-the-demon",
+          "title": "Search For The Demon",
+          "phrase": "search for the demon",
+          "meaning": "Face your shadow and fears\u2014naming the obstacles or negative patterns allows you to release them.",
+          "imageUrl": "https://mercuryapp.imneeff.com/search-for-the-demon.jpg"
+        },
+        {
+          "id": "seek-the-edge",
+          "title": "Seek the Edge",
+          "phrase": "seek the edge",
+          "meaning": "Explore beyond your comfort zone\u2014growth happens at the boundaries, even when it feels uncomfortable.",
+          "imageUrl": "https://mercuryapp.imneeff.com/seek-the-edge.jpg"
+        },
+        {
+          "id": "seek-your-destiny",
+          "title": "Seek Your Destiny",
+          "phrase": "seek your destiny",
+          "meaning": "Clarify your dreams and ambitions\u2014take steps toward purposeful goals and awaken to your highest potential.",
+          "imageUrl": "https://mercuryapp.imneeff.com/seek-your-destiny.jpg"
+        },
+        {
+          "id": "share-joy",
+          "title": "Share Joy",
+          "phrase": "share joy",
+          "meaning": "Spread happiness and creativity\u2014shared joy uplifts communities and creates waves of light.",
+          "imageUrl": "https://mercuryapp.imneeff.com/share-joy.jpg"
+        },
+        {
+          "id": "shift-dimensions",
+          "title": "Shift Dimensions",
+          "phrase": "shift dimensions",
+          "meaning": "Change your perspective or reality consciously\u2014small intentional shifts can bring you into a new world.",
+          "imageUrl": "https://mercuryapp.imneeff.com/shift-dimensions.jpg"
+        },
+        {{
+          "id": "spend-time-alone",
+          "title": "Spend Time Alone",
+          "phrase": "spend time alone",
+          "meaning": "Rest and restore in solitude\u2014self-reflection is necessary for inner balance and new insight.",
+          "imageUrl": "https://mercuryapp.imneeff.com/spend-time-alone.jpg"
+        },
+        {
+          "id": "sleep",
+          "title": "Sleep",
+          "phrase": "sleep",
+          "meaning": "Rest deeply; pause all effort. This is a time of restoration\u2014replenish your energy before continuing.",
+          "imageUrl": "https://mercuryapp.imneeff.com/sleep.jpg"
+        },
+        {
+          "id": "struggle-through",
+          "title": "Struggle Through",
+          "phrase": "struggle through",
+          "meaning": "Embrace and consciously engage with life's challenges\u2014struggle leads to breakthrough and growth.",
+          "imageUrl": "https://mercuryapp.imneeff.com/struggle-through.jpg"
+        },
+        {
+          "id": "surrender-completely",
+          "title": "Surrender Completely",
+          "phrase": "surrender completely",
+          "meaning": "Release all control and trust a greater flow; true freedom comes with total acceptance and faith.",
+          "imageUrl": "https://mercuryapp.imneeff.com/surrender-completely.jpg"
+        },
+        {
+          "id": "there-is-order-in-chaos",
+          "title": "There Is Order in Chaos",
+          "phrase": "there is order in chaos",
+          "meaning": "Beneath every chaotic situation is a deeper pattern. Trust that things are organizing themselves for your evolution.",
+          "imageUrl": "https://mercuryapp.imneeff.com/there-is-order-in-chaos.jpg"
+        },
+        {
+          "id": "tie-new-knots",
+          "title": "Tie New Knots",
+          "phrase": "tie new knots",
+          "meaning": "Create new connections or commitments\u2014untangle what's old and strengthen bonds that support your future.",
+          "imageUrl": "https://mercuryapp.imneeff.com/tie-new-knots.jpg"
+        },
+        {
+          "id": "twist-your-language",
+          "title": "Twist Your Language",
+          "phrase": "twist your language",
+          "meaning": "Use metaphor and creativity to change your reality; reframing your words reshapes your world.",
+          "imageUrl": "https://mercuryapp.imneeff.com/twist-your-language.jpg"
+        },
+        {
+          "id": "use-your-lock-as-a-key",
+          "title": "Use Your Lock as a Key",
+          "phrase": "use your lock as a key",
+          "meaning": "The solution is within the problem\u2014face obstacles directly and they become stepping stones.",
+          "imageUrl": "https://mercuryapp.imneeff.com/use-your-lock-as-a-key.jpg"
+        },
+        {
+          "id": "wait-until-dark",
+          "title": "Wait Until Dark",
+          "phrase": "wait until dark",
+          "meaning": "The right moment is coming, but not yet\u2014patience is required. Wait for the night to reveal what you need.",
+          "imageUrl": "https://mercuryapp.imneeff.com/wait-until-dark.jpg"
+        },
+        {
+          "id": "wait-until-light",
+          "title": "Wait Until Light",
+          "phrase": "wait until light",
+          "meaning": "Hold your action until clarity and favorable conditions appear\u2014dawn will show the way.",
+          "imageUrl": "https://mercuryapp.imneeff.com/wait-until-light.jpg"
+        },
+        {
+          "id": "your-feeling-is-correct",
+          "title": "Your Feeling Is Correct",
+          "phrase": "your feeling is correct",
+          "meaning": "Trust your bodily knowing; clarity and truth arise from balanced mind and feeling.",
+          "imageUrl": "https://mercuryapp.imneeff.com/your-feeling-is-correct.jpg"
+        },
+        {
+          "id": "zoom-in",
+          "title": "Zoom In",
+          "phrase": "zoom in",
+          "meaning": "Examine the details of your inner world\u2014introspection will reveal subtle truths or new insights.",
+          "imageUrl": "https://mercuryapp.imneeff.com/zoom-in.jpg"
+        },
+        {
+          "id": "zoom-out",
+          "title": "Zoom Out",
+          "phrase": "zoom out",
+          "meaning": "Expand your view\u2014step back and place your situation in the wider context for clarity and perspective.",
+          "imageUrl": "https://mercuryapp.imneeff.com/zoom-out.jpg"
         }
       ]
     },
@@ -48,25 +627,618 @@
       "id": "II",
       "cards": [
         {
-          "id": "II-01",
-          "title": "The Current",
-          "imageUrl": "./cards/II-01.jpg",
-          "phrase": "What moves beneath the surface.",
-          "meaning": "The pattern beneath the immediate event. Step back and read the larger current you are moving through."
+          "id": "go-down-the-tunnel",
+          "title": "Go Down the Tunnel",
+          "phrase": "go down the tunnel",
+          "meaning": "Face the challenge ahead by going through darkness to find the light\u2014uncertainty is a path to discovery, so proceed bravely, guided by your inner lantern.",
+          "imageUrl": "https://mercuryapp.imneeff.com/go-down-the-tunnel.jpg"
         },
         {
-          "id": "II-02",
-          "title": "The Field",
-          "imageUrl": "./cards/II-02.jpg",
-          "phrase": "Context is not background — it is ground.",
-          "meaning": "The conditions surrounding this moment. What has accumulated to make this possible, or difficult."
+          "id": "go-over-the-bridge",
+          "title": "Go Over the Bridge",
+          "phrase": "go over the bridge",
+          "meaning": "This is a moment of transition\u2014thoughts and emotions are coming together, allowing you to cross into new understanding or opportunity.",
+          "imageUrl": "https://mercuryapp.imneeff.com/go-over-the-bridge.jpg"
         },
         {
-          "id": "II-03",
-          "title": "The Witness",
-          "imageUrl": "./cards/II-03.jpg",
-          "phrase": "Someone is watching this unfold.",
-          "meaning": "There is a vantage point available to you. Rise to it. From here the shape of events becomes visible."
+          "id": "go-through-the-gateway",
+          "title": "Go Through the Gateway",
+          "phrase": "go through the gateway",
+          "meaning": "A door of opportunity is before you; unlock it with courage and action, and enter a new reality or life phase.",
+          "imageUrl": "https://mercuryapp.imneeff.com/go-through-the-gateway.jpg"
+        },
+        {
+          "id": "go-through-the-mirror",
+          "title": "Go Through the Mirror",
+          "phrase": "go through the mirror",
+          "meaning": "Self-reflection and relationships are in focus; see yourself in others and seek new perspectives to deepen understanding of who you are.",
+          "imageUrl": "https://mercuryapp.imneeff.com/go-through-the-mirror.jpg"
+        },
+        {
+          "id": "go-to-the-crossroads",
+          "title": "Go to the Crossroads",
+          "phrase": "go to the crossroads",
+          "meaning": "It's time to make a significant choice\u2014consider your options carefully, as your direction now will shape your path and destiny.",
+          "imageUrl": "https://mercuryapp.imneeff.com/go-to-the-crossroads.jpg"
+        },
+        {
+          "id": "the-sun",
+          "title": "The Sun",
+          "phrase": "the sun",
+          "meaning": "Brilliance, success, vitality, and joy are yours. Embrace optimism and act confidently; positivity will see you through even the darkest times.",
+          "imageUrl": "https://mercuryapp.imneeff.com/the-sun.jpg"
+        },
+        {
+          "id": "mercury",
+          "title": "Mercury",
+          "phrase": "mercury",
+          "meaning": "Communication and adaptability are highlighted\u2014be clear, curious, and flexible, and welcome shifts or new ideas.",
+          "imageUrl": "https://mercuryapp.imneeff.com/mercury.jpg"
+        },
+        {
+          "id": "venus",
+          "title": "Venus",
+          "phrase": "venus",
+          "meaning": "Love, beauty, pleasure, and harmony invite joy into your life; cultivate relationships and indulge in creative or aesthetic pursuits.",
+          "imageUrl": "https://mercuryapp.imneeff.com/venus.jpg"
+        },
+        {
+          "id": "earth",
+          "title": "Earth",
+          "phrase": "earth",
+          "meaning": "Ground yourself in nurturing, connection, and community\u2014find fulfillment through caring for others and the world around you.",
+          "imageUrl": "https://mercuryapp.imneeff.com/earth.jpg"
+        },
+        {
+          "id": "the-moon",
+          "title": "The Moon",
+          "phrase": "the moon",
+          "meaning": "Dreams, illusions, and intuition come to the fore. Trust your instincts, embrace the mysterious, and beware of projections or fears.",
+          "imageUrl": "https://mercuryapp.imneeff.com/the-moon.jpg"
+        },
+        {
+          "id": "mars",
+          "title": "Mars",
+          "phrase": "mars",
+          "meaning": "Action, drive, and passion are required. Assert yourself, channel energy constructively, and move boldly towards your goals.",
+          "imageUrl": "https://mercuryapp.imneeff.com/mars.jpg"
+        },
+        {
+          "id": "jupiter",
+          "title": "Jupiter",
+          "phrase": "jupiter",
+          "meaning": "Luck, growth, and abundance surround you\u2014expand your horizons, pursue wisdom, and seize opportunities for spiritual and personal advancement.",
+          "imageUrl": "https://mercuryapp.imneeff.com/jupiter.jpg"
+        },
+        {
+          "id": "saturn",
+          "title": "Saturn",
+          "phrase": "saturn",
+          "meaning": "Discipline, responsibility, and structure are necessary. Honor your commitments, acknowledge limitations, and persist with maturity.",
+          "imageUrl": "https://mercuryapp.imneeff.com/saturn.jpg"
+        },
+        {
+          "id": "uranus",
+          "title": "Uranus",
+          "phrase": "uranus",
+          "meaning": "Expect sudden change or awakening\u2014break patterns, embrace innovation, and allow breakthroughs to disrupt what is stagnant.",
+          "imageUrl": "https://mercuryapp.imneeff.com/uranus.jpg"
+        },
+        {
+          "id": "neptune",
+          "title": "Neptune",
+          "phrase": "neptune",
+          "meaning": "Dreams, spirituality, and inspiration\u2014dissolve boundaries, use imagination, but beware of illusions or self-deception.",
+          "imageUrl": "https://mercuryapp.imneeff.com/neptune.jpg"
+        },
+        {
+          "id": "pluto",
+          "title": "Pluto",
+          "phrase": "pluto",
+          "meaning": "Transformation and rebirth\u2014embrace fundamental change, face your deepest fears, and allow what no longer serves you to be released.",
+          "imageUrl": "https://mercuryapp.imneeff.com/pluto.jpg"
+        },
+        {
+          "id": "connect-to-higher-states",
+          "title": "Connect to Higher States",
+          "phrase": "connect to higher states",
+          "meaning": "Open your crown to spirit and clarity. Balance spiritual insight with earthly awareness and allow wisdom to enter.",
+          "imageUrl": "https://mercuryapp.imneeff.com/connect-to-higher-states.jpg"
+        },
+        {
+          "id": "activate-your-intuition",
+          "title": "Activate Your Intuition",
+          "phrase": "activate your intuition",
+          "meaning": "Trust your inner knowing and psychic senses\u2014clarify any situation by turning inward and letting intuition be your guide.",
+          "imageUrl": "https://mercuryapp.imneeff.com/activate-your-intuition.jpg"
+        },
+        {
+          "id": "speak-your-truth",
+          "title": "Speak Your Truth",
+          "phrase": "speak your truth",
+          "meaning": "Authentically express yourself; your words shape reality, so communicate honestly and with clarity.",
+          "imageUrl": "https://mercuryapp.imneeff.com/speak-your-truth.jpg"
+        },
+        {
+          "id": "follow-your-heart",
+          "title": "Follow Your Heart",
+          "phrase": "follow your heart",
+          "meaning": "Operate from compassion and openness\u2014self-love and forgiveness are keys to joy and fulfillment.",
+          "imageUrl": "https://mercuryapp.imneeff.com/follow-your-heart.jpg"
+        },
+        {
+          "id": "trust-your-gut",
+          "title": "Trust Your Gut",
+          "phrase": "trust your gut",
+          "meaning": "Feel into your body\u2019s wisdom\u2014intuition, not logic, is your best guide to vital and authentic choices.",
+          "imageUrl": "https://mercuryapp.imneeff.com/trust-your-gut.jpg"
+        },{
+          "id": "create",
+          "title": "Create",
+          "phrase": "create",
+          "meaning": "Embrace creative energy through play, making, and expression\u2014wellness arises from honoring your creative nature.",
+          "imageUrl": "https://mercuryapp.imneeff.com/create.jpg"
+        },
+        {
+          "id": "ground-yourself",
+          "title": "Ground Yourself",
+          "phrase": "ground yourself",
+          "meaning": "Balance and connect by restoring your root\u2014nourish yourself, find security, and tend to basic needs.",
+          "imageUrl": "https://mercuryapp.imneeff.com/ground-yourself.jpg"
+        },
+        {
+          "id": "find-air",
+          "title": "Find Air",
+          "phrase": "find air",
+          "meaning": "Let intellect, curiosity, and freedom flow. Communicate, think creatively, and allow new ideas to circulate.",
+          "imageUrl": "https://mercuryapp.imneeff.com/find-air.jpg"
+        },
+        {
+          "id": "find-earth",
+          "title": "Find Earth",
+          "phrase": "find earth",
+          "meaning": "Stabilize with patience, harmony, and practicality. Stay grounded, nurture abundance, and seek balance.",
+          "imageUrl": "https://mercuryapp.imneeff.com/find-earth.jpg"
+        },
+        {
+          "id": "find-fire",
+          "title": "Find Fire",
+          "phrase": "find fire",
+          "meaning": "Embody transformation and power\u2014channel your energy to ignite change and pursue your passions.",
+          "imageUrl": "https://mercuryapp.imneeff.com/find-fire.jpg"
+        },
+        {
+          "id": "find-spirit",
+          "title": "Find Spirit",
+          "phrase": "find spirit",
+          "meaning": "Connect to the subtle, animating essence of life\u2014divine intelligence guides all; tune in to spiritual wisdom.",
+          "imageUrl": "https://mercuryapp.imneeff.com/find-spirit.jpg"
+        },
+        {
+          "id": "find-water",
+          "title": "Find Water",
+          "phrase": "find water",
+          "meaning": "Let emotion and adaptability flow\u2014be gentle, receptive, and deep; allow feelings to guide your path.",
+          "imageUrl": "https://mercuryapp.imneeff.com/find-water.jpg"
+        },
+        {
+          "id": "stop",
+          "title": "Stop",
+          "phrase": "stop",
+          "meaning": "Cease action and reconsider\u2014this is not the way forward. Sometimes the best move is not to play at all.",
+          "imageUrl": "https://mercuryapp.imneeff.com/stop.jpg"
+        },
+        {
+          "id": "go",
+          "title": "Go",
+          "phrase": "go",
+          "meaning": "Take action and move towards your goals, even if progress is slow. Momentum is key.",
+          "imageUrl": "https://mercuryapp.imneeff.com/go.jpg"
+        },
+        {
+          "id": "yes",
+          "title": "Yes",
+          "phrase": "yes",
+          "meaning": "Affirmation\u2014move forward confidently, accept opportunities, and invite positivity into your life.",
+          "imageUrl": "https://mercuryapp.imneeff.com/yes.jpg"
+        },
+        {
+          "id": "no",
+          "title": "No",
+          "phrase": "no",
+          "meaning": "A negative response\u2014decline, set boundaries, or recognize that rejection opens space for greater things.",
+          "imageUrl": "https://mercuryapp.imneeff.com/no.jpg"
+        },
+        {
+          "id": "all-one-or-none",
+          "title": "All One or None",
+          "phrase": "all one or none",
+          "meaning": "Seek community and collaboration\u2014unity and collective action enhance outcomes for everyone.",
+          "imageUrl": "https://mercuryapp.imneeff.com/all-one-or-none.jpg"
+        },
+        {
+          "id": "avoid-all-traps",
+          "title": "Avoid All Traps",
+          "phrase": "avoid all traps",
+          "meaning": "Exercise discernment and caution\u2014look for hidden motives or pitfalls and plan to sidestep them.",
+          "imageUrl": "https://mercuryapp.imneeff.com/avoid-all-traps.jpg"
+        },
+        {
+          "id": "avoid-your-fate",
+          "title": "Avoid Your Fate",
+          "phrase": "avoid your fate",
+          "meaning": "Take active steps to shape your destiny\u2014refuse to be passive or fall into old patterns; you have the power to change.",
+          "imageUrl": "https://mercuryapp.imneeff.com/avoid-your-fate.jpg"
+        },
+        {
+          "id": "be-kind",
+          "title": "Be Kind",
+          "phrase": "be kind",
+          "meaning": "Practice kindness without self-interest. Compassion and generosity are powerful forces for healing.",
+          "imageUrl": "https://mercuryapp.imneeff.com/be-kind.jpg"
+        },
+        {
+          "id": "be-open",
+          "title": "Be Open",
+          "phrase": "be open",
+          "meaning": "Adopt a beginner\u2019s mind\u2014approach situations with curiosity, humility, and willingness to learn.",
+          "imageUrl": "https://mercuryapp.imneeff.com/be-open.jpg"
+        },
+        {
+          "id": "be-yourself",
+          "title": "Be Yourself",
+          "phrase": "be yourself",
+          "meaning": "Express your true self\u2014honor your individuality and prioritize inner authenticity over external expectations.",
+          "imageUrl": "https://mercuryapp.imneeff.com/be-yourself.jpg"
+        },
+        {
+          "id": "burn-your-boat",
+          "title": "Burn Your Boat",
+          "phrase": "burn your boat",
+          "meaning": "Make a decisive commitment and eliminate any path back\u2014total devotion brings new creative solutions.",
+          "imageUrl": "https://mercuryapp.imneeff.com/burn-your-boat.jpg"
+        },
+        {
+          "id": "call-upon-the-dead",
+          "title": "Call Upon the Dead",
+          "phrase": "call upon the dead",
+          "meaning": "Connect with ancestors or personal heritage for wisdom and support; ritual and remembrance bring transformation.",
+          "imageUrl": "https://mercuryapp.imneeff.com/call-upon-the-dead.jpg"
+        },
+        {
+          "id": "clear-your-mind",
+          "title": "Clear Your Mind",
+          "phrase": "clear your mind",
+          "meaning": "Release mental clutter to restore presence\u2014clarity brings creativity and access to intuitive answers.",
+          "imageUrl": "https://mercuryapp.imneeff.com/clear-your-mind.jpg"
+        },
+        {
+          "id": "conceal-yourself",
+          "title": "Conceal Yourself",
+          "phrase": "conceal yourself",
+          "meaning": "Blend into your surroundings and find strength in openness and transparency rather than hiding.",
+          "imageUrl": "https://mercuryapp.imneeff.com/conceal-yourself.jpg"
+        },
+        {
+          "id": "connect-to-your-body",
+          "title": "Connect to Your Body",
+          "phrase": "connect to your body",
+          "meaning": "Slow down, notice, and appreciate your physical self\u2014body awareness anchors and heals.",
+          "imageUrl": "https://mercuryapp.imneeff.com/connect-to-your-body.jpg"
+        },
+        {
+          "id": "consolidate-your-bodies",
+          "title": "Consolidate Your Bodies",
+          "phrase": "consolidate your bodies",
+          "meaning": "Organize your inner and outer life; bring all aspects of yourself into harmony for health and progress.",
+          "imageUrl": "https://mercuryapp.imneeff.com/consolidate-your-bodies.jpg"
+        },
+        {
+          "id": "contact-the-other",
+          "title": "Contact the Other",
+          "phrase": "contact the other",
+          "meaning": "Reach out to that which is different or unknown\u2014connection with guides, higher knowledge, or new influences is possible.",
+          "imageUrl": "https://mercuryapp.imneeff.com/contact-the-other.jpg"
+        },
+        {
+          "id": "dispel-all-illusions",
+          "title": "Dispel All Illusions",
+          "phrase": "dispel all illusions",
+          "meaning": "See through deception and self-delusion\u2014look directly at difficult truths to free yourself from falsehood.",
+          "imageUrl": "https://mercuryapp.imneeff.com/dispel-all-illusions.jpg"
+        },
+        {
+          "id": "dissolve-all-notions-of-self",
+          "title": "Dissolve All Notions of Self",
+          "phrase": "dissolve all notions of self",
+          "meaning": "Embrace change by releasing limiting ideas or attachments\u2014rebirth and growth follow surrender.",
+          "imageUrl": "https://mercuryapp.imneeff.com/dissolve-all-notions-of-self.jpg"
+        },
+        {
+          "id": "do-not-forget",
+          "title": "Do Not Forget",
+          "phrase": "do not forget",
+          "meaning": "Pay attention to what needs remembering\u2014this card is a prompt to pull another card for insight.",
+          "imageUrl": "https://mercuryapp.imneeff.com/do-not-forget.jpg"
+        },
+        {
+          "id": "do-not-sleep",
+          "title": "Do Not Sleep",
+          "phrase": "do not sleep",
+          "meaning": "Stay vigilant and attentive\u2014this is a time for progress, not rest. Opportunities or challenges may arise unexpectedly.",
+          "imageUrl": "https://mercuryapp.imneeff.com/do-not-sleep.jpg"
+        },
+        {
+          "id": "embody-light",
+          "title": "Embody Light",
+          "phrase": "embody light",
+          "meaning": "Shine positivity and joy\u2014overcome obstacles by letting your inner light radiate outward to others.",
+          "imageUrl": "https://mercuryapp.imneeff.com/embody-light.jpg"
+        },
+        {
+          "id": "embrace-the-void",
+          "title": "Embrace the Void",
+          "phrase": "embrace the void",
+          "meaning": "Sit with emptiness and silence; transformation and new beginnings arise from this space of nothingness.",
+          "imageUrl": "https://mercuryapp.imneeff.com/embrace-the-void.jpg"
+        },
+        {
+          "id": "employ-chaos",
+          "title": "Employ Chaos",
+          "phrase": "employ chaos",
+          "meaning": "Let go of rigid plans\u2014engage creativity, spontaneity, and new possibilities by playing with the unknown.",
+          "imageUrl": "https://mercuryapp.imneeff.com/employ-chaos.jpg"
+        },
+        {
+          "id": "find-others",
+          "title": "Find Others",
+          "phrase": "find others",
+          "meaning": "Reach out and build connections. Community, collaboration, or new partnerships will fuel your journey.",
+          "imageUrl": "https://mercuryapp.imneeff.com/find-others.jpg"
+        },
+        {
+          "id": "harmonize-with-patterns",
+          "title": "Harmonize with Patterns",
+          "phrase": "harmonize with patterns",
+          "meaning": "Notice and work with natural cycles and repetition in your life\u2014cooperate with the flow to create harmony.",
+          "imageUrl": "https://mercuryapp.imneeff.com/harmonize-with-patterns.jpg"
+        },
+        {
+          "id": "give-patience-to-the-road",
+          "title": "Give Patience to the Road",
+          "phrase": "give patience to the road",
+          "meaning": "Be patient with the journey; everything develops in its own time and rushing will only slow or hinder you.",
+          "imageUrl": "https://mercuryapp.imneeff.com/give-patience-to-the-road.jpg"
+        },
+        {
+          "id": "give-something-away",
+          "title": "Give Something Away",
+          "phrase": "give something away",
+          "meaning": "Release and give freely\u2014offering something without expectation of return is necessary for liberation.",
+          "imageUrl": "https://mercuryapp.imneeff.com/give-something-away.jpg"
+        },
+        {
+          "id": "immanentize-the-eschaton",
+          "title": "Immanentize the Eschaton",
+          "phrase": "immanentize the eschaton",
+          "meaning": "Merge spirit and matter; transcend disorder through love, peace, and extraordinary insight.",
+          "imageUrl": "https://mercuryapp.imneeff.com/immanentize-the-eschaton.jpg"
+        },
+        {
+          "id": "know-divine-timing",
+          "title": "Know Divine Timing",
+          "phrase": "know divine timing",
+          "meaning": "Trust the timing of events; everything unfolds as it should\u2014allow and accept the present moment.",
+          "imageUrl": "https://mercuryapp.imneeff.com/know-divine-timing.jpg"
+        },
+        {
+          "id": "move-your-body",
+          "title": "Move Your Body",
+          "phrase": "move your body",
+          "meaning": "Actively shift your energy\u2014change, exercise, or travel will break stagnation and foster healing.",
+          "imageUrl": "https://mercuryapp.imneeff.com/move-your-body.jpg"
+        },
+        {
+          "id": "observe-the-observer",
+          "title": "Observe the Observer",
+          "phrase": "observe the observer",
+          "meaning": "Contemplate your own awareness; realize the unity of self and experience, and reflect deeply.",
+          "imageUrl": "https://mercuryapp.imneeff.com/observe-the-observer.jpg"
+        },
+        {
+          "id": "organize",
+          "title": "Organize",
+          "phrase": "organize",
+          "meaning": "Bring order to your inner and outer world; clear and intentional organization supports progress.",
+          "imageUrl": "https://mercuryapp.imneeff.com/organize.jpg"
+        },
+        {
+          "id": "plant-seeds",
+          "title": "Plant Seeds",
+          "phrase": "plant seeds",
+          "meaning": "Begin something new\u2014start with small steps, nurture your ideas patiently, and trust them to grow over time.",
+          "imageUrl": "https://mercuryapp.imneeff.com/plant-seeds.jpg"
+        },
+        {
+          "id": "practice-dreaming",
+          "title": "Practice Dreaming",
+          "phrase": "practice dreaming",
+          "meaning": "Take time to imagine and embody your deepest dreams. Manifestation starts with vision and feeling.",
+          "imageUrl": "https://mercuryapp.imneeff.com/practice-dreaming.jpg"
+        },
+        {
+          "id": "read-your-omens",
+          "title": "Read Your Omens",
+          "phrase": "read your omens",
+          "meaning": "Notice synchronicities and intuitive nudges\u2014guidance is present in every sign and symbol.",
+          "imageUrl": "https://mercuryapp.imneeff.com/read-your-omens.jpg"
+        },
+        {
+          "id": "receive-your-gifts",
+          "title": "Receive Your Gifts",
+          "phrase": "receive your gifts",
+          "meaning": "Allow yourself to accept abundance and blessings that are freely given\u2014embrace generosity inwardly and outwardly.",
+          "imageUrl": "https://mercuryapp.imneeff.com/receive-your-gifts.jpg"
+        },
+        {
+          "id": "recognize-other-realities",
+          "title": "Recognize Other Realities",
+          "phrase": "recognize other realities",
+          "meaning": "Empathize with alternate perspectives\u2014be open to different outcomes, worlds, or perceptions.",
+          "imageUrl": "https://mercuryapp.imneeff.com/recognize-other-realities.jpg"
+        },
+        {
+          "id": "reformulate-your-approach",
+          "title": "Reformulate Your Approach",
+          "phrase": "reformulate your approach",
+          "meaning": "Try a new angle or perspective\u2014innovative questions and courageous inquiry bring new solutions.",
+          "imageUrl": "https://mercuryapp.imneeff.com/reformulate-your-approach.jpg"
+        },
+        {
+          "id": "retrace-your-steps",
+          "title": "Retrace Your Steps",
+          "phrase": "retrace your steps",
+          "meaning": "Review your history for insight; the solution may lie in your past experience or lesson already learned.",
+          "imageUrl": "https://mercuryapp.imneeff.com/retrace-your-steps.jpg"
+        },
+        {
+          "id": "return-to-love",
+          "title": "Return to Love",
+          "phrase": "return to love",
+          "meaning": "Healing and resolution are found in compassion, forgiveness, and honest self-love.",
+          "imageUrl": "https://mercuryapp.imneeff.com/return-to-love.jpg"
+        },
+        {
+          "id": "rise-above-it",
+          "title": "Rise Above It",
+          "phrase": "rise above it",
+          "meaning": "View your challenges from a higher vantage point\u2014what seemed like a problem may be a hidden blessing.",
+          "imageUrl": "https://mercuryapp.imneeff.com/rise-above-it.jpg"
+        },
+        {
+          "id": "search-for-the-demon",
+          "title": "Search For The Demon",
+          "phrase": "search for the demon",
+          "meaning": "Face your shadow and fears\u2014naming the obstacles or negative patterns allows you to release them.",
+          "imageUrl": "https://mercuryapp.imneeff.com/search-for-the-demon.jpg"
+        },
+        {
+          "id": "seek-the-edge",
+          "title": "Seek the Edge",
+          "phrase": "seek the edge",
+          "meaning": "Explore beyond your comfort zone\u2014growth happens at the boundaries, even when it feels uncomfortable.",
+          "imageUrl": "https://mercuryapp.imneeff.com/seek-the-edge.jpg"
+        },
+        {
+          "id": "seek-your-destiny",
+          "title": "Seek Your Destiny",
+          "phrase": "seek your destiny",
+          "meaning": "Clarify your dreams and ambitions\u2014take steps toward purposeful goals and awaken to your highest potential.",
+          "imageUrl": "https://mercuryapp.imneeff.com/seek-your-destiny.jpg"
+        },
+        {
+          "id": "share-joy",
+          "title": "Share Joy",
+          "phrase": "share joy",
+          "meaning": "Spread happiness and creativity\u2014shared joy uplifts communities and creates waves of light.",
+          "imageUrl": "https://mercuryapp.imneeff.com/share-joy.jpg"
+        },
+        {
+          "id": "shift-dimensions",
+          "title": "Shift Dimensions",
+          "phrase": "shift dimensions",
+          "meaning": "Change your perspective or reality consciously\u2014small intentional shifts can bring you into a new world.",
+          "imageUrl": "https://mercuryapp.imneeff.com/shift-dimensions.jpg"
+        },
+        {          "id": "spend-time-alone",
+          "title": "Spend Time Alone",
+          "phrase": "spend time alone",
+          "meaning": "Rest and restore in solitude\u2014self-reflection is necessary for inner balance and new insight.",
+          "imageUrl": "https://mercuryapp.imneeff.com/spend-time-alone.jpg"
+        },
+        {
+          "id": "sleep",
+          "title": "Sleep",
+          "phrase": "sleep",
+          "meaning": "Rest deeply; pause all effort. This is a time of restoration\u2014replenish your energy before continuing.",
+          "imageUrl": "https://mercuryapp.imneeff.com/sleep.jpg"
+        },
+        {
+          "id": "struggle-through",
+          "title": "Struggle Through",
+          "phrase": "struggle through",
+          "meaning": "Embrace and consciously engage with life's challenges\u2014struggle leads to breakthrough and growth.",
+          "imageUrl": "https://mercuryapp.imneeff.com/struggle-through.jpg"
+        },
+        {
+          "id": "surrender-completely",
+          "title": "Surrender Completely",
+          "phrase": "surrender completely",
+          "meaning": "Release all control and trust a greater flow; true freedom comes with total acceptance and faith.",
+          "imageUrl": "https://mercuryapp.imneeff.com/surrender-completely.jpg"
+        },
+        {
+          "id": "there-is-order-in-chaos",
+          "title": "There Is Order in Chaos",
+          "phrase": "there is order in chaos",
+          "meaning": "Beneath every chaotic situation is a deeper pattern. Trust that things are organizing themselves for your evolution.",
+          "imageUrl": "https://mercuryapp.imneeff.com/there-is-order-in-chaos.jpg"
+        },
+        {
+          "id": "tie-new-knots",
+          "title": "Tie New Knots",
+          "phrase": "tie new knots",
+          "meaning": "Create new connections or commitments\u2014untangle what's old and strengthen bonds that support your future.",
+          "imageUrl": "https://mercuryapp.imneeff.com/tie-new-knots.jpg"
+        },
+        {
+          "id": "twist-your-language",
+          "title": "Twist Your Language",
+          "phrase": "twist your language",
+          "meaning": "Use metaphor and creativity to change your reality; reframing your words reshapes your world.",
+          "imageUrl": "https://mercuryapp.imneeff.com/twist-your-language.jpg"
+        },
+        {
+          "id": "use-your-lock-as-a-key",
+          "title": "Use Your Lock as a Key",
+          "phrase": "use your lock as a key",
+          "meaning": "The solution is within the problem\u2014face obstacles directly and they become stepping stones.",
+          "imageUrl": "https://mercuryapp.imneeff.com/use-your-lock-as-a-key.jpg"
+        },
+        {
+          "id": "wait-until-dark",
+          "title": "Wait Until Dark",
+          "phrase": "wait until dark",
+          "meaning": "The right moment is coming, but not yet\u2014patience is required. Wait for the night to reveal what you need.",
+          "imageUrl": "https://mercuryapp.imneeff.com/wait-until-dark.jpg"
+        },
+        {
+          "id": "wait-until-light",
+          "title": "Wait Until Light",
+          "phrase": "wait until light",
+          "meaning": "Hold your action until clarity and favorable conditions appear\u2014dawn will show the way.",
+          "imageUrl": "https://mercuryapp.imneeff.com/wait-until-light.jpg"
+        },
+        {
+          "id": "your-feeling-is-correct",
+          "title": "Your Feeling Is Correct",
+          "phrase": "your feeling is correct",
+          "meaning": "Trust your bodily knowing; clarity and truth arise from balanced mind and feeling.",
+          "imageUrl": "https://mercuryapp.imneeff.com/your-feeling-is-correct.jpg"
+        },
+        {
+          "id": "zoom-in",
+          "title": "Zoom In",
+          "phrase": "zoom in",
+          "meaning": "Examine the details of your inner world\u2014introspection will reveal subtle truths or new insights.",
+          "imageUrl": "https://mercuryapp.imneeff.com/zoom-in.jpg"
+        },
+        {
+          "id": "zoom-out",
+          "title": "Zoom Out",
+          "phrase": "zoom out",
+          "meaning": "Expand your view\u2014step back and place your situation in the wider context for clarity and perspective.",
+          "imageUrl": "https://mercuryapp.imneeff.com/zoom-out.jpg"
         }
       ]
     },
@@ -74,25 +1246,619 @@
       "id": "III",
       "cards": [
         {
-          "id": "III-01",
-          "title": "The Root",
-          "imageUrl": "./cards/III-01.jpg",
-          "phrase": "Before the question, this.",
-          "meaning": "The structural condition beneath everything else. This is not about the immediate situation — it is about what makes the situation possible at all."
+          "id": "go-down-the-tunnel",
+          "title": "Go Down the Tunnel",
+          "phrase": "go down the tunnel",
+          "meaning": "Face the challenge ahead by going through darkness to find the light\u2014uncertainty is a path to discovery, so proceed bravely, guided by your inner lantern.",
+          "imageUrl": "https://mercuryapp.imneeff.com/go-down-the-tunnel.jpg"
         },
         {
-          "id": "III-02",
-          "title": "The Long Arc",
-          "imageUrl": "./cards/III-02.jpg",
-          "phrase": "You are further along than you think.",
-          "meaning": "Seen from the longest view, this moment is a confirmation, not a crisis. Trust the trajectory."
+          "id": "go-over-the-bridge",
+          "title": "Go Over the Bridge",
+          "phrase": "go over the bridge",
+          "meaning": "This is a moment of transition\u2014thoughts and emotions are coming together, allowing you to cross into new understanding or opportunity.",
+          "imageUrl": "https://mercuryapp.imneeff.com/go-over-the-bridge.jpg"
         },
         {
-          "id": "III-03",
-          "title": "The Unnamed",
-          "imageUrl": "./cards/III-03.jpg",
-          "phrase": "Not everything resolves into language.",
-          "meaning": "There is something at work here that cannot yet be named. Hold it without forcing definition. It will make itself known."
+          "id": "go-through-the-gateway",
+          "title": "Go Through the Gateway",
+          "phrase": "go through the gateway",
+          "meaning": "A door of opportunity is before you; unlock it with courage and action, and enter a new reality or life phase.",
+          "imageUrl": "https://mercuryapp.imneeff.com/go-through-the-gateway.jpg"
+        },
+        {
+          "id": "go-through-the-mirror",
+          "title": "Go Through the Mirror",
+          "phrase": "go through the mirror",
+          "meaning": "Self-reflection and relationships are in focus; see yourself in others and seek new perspectives to deepen understanding of who you are.",
+          "imageUrl": "https://mercuryapp.imneeff.com/go-through-the-mirror.jpg"
+        },
+        {
+          "id": "go-to-the-crossroads",
+          "title": "Go to the Crossroads",
+          "phrase": "go to the crossroads",
+          "meaning": "It's time to make a significant choice\u2014consider your options carefully, as your direction now will shape your path and destiny.",
+          "imageUrl": "https://mercuryapp.imneeff.com/go-to-the-crossroads.jpg"
+        },
+        {
+          "id": "the-sun",
+          "title": "The Sun",
+          "phrase": "the sun",
+          "meaning": "Brilliance, success, vitality, and joy are yours. Embrace optimism and act confidently; positivity will see you through even the darkest times.",
+          "imageUrl": "https://mercuryapp.imneeff.com/the-sun.jpg"
+        },
+        {
+          "id": "mercury",
+          "title": "Mercury",
+          "phrase": "mercury",
+          "meaning": "Communication and adaptability are highlighted\u2014be clear, curious, and flexible, and welcome shifts or new ideas.",
+          "imageUrl": "https://mercuryapp.imneeff.com/mercury.jpg"
+        },
+        {
+          "id": "venus",
+          "title": "Venus",
+          "phrase": "venus",
+          "meaning": "Love, beauty, pleasure, and harmony invite joy into your life; cultivate relationships and indulge in creative or aesthetic pursuits.",
+          "imageUrl": "https://mercuryapp.imneeff.com/venus.jpg"
+        },
+        {
+          "id": "earth",
+          "title": "Earth",
+          "phrase": "earth",
+          "meaning": "Ground yourself in nurturing, connection, and community\u2014find fulfillment through caring for others and the world around you.",
+          "imageUrl": "https://mercuryapp.imneeff.com/earth.jpg"
+        },
+        {
+          "id": "the-moon",
+          "title": "The Moon",
+          "phrase": "the moon",
+          "meaning": "Dreams, illusions, and intuition come to the fore. Trust your instincts, embrace the mysterious, and beware of projections or fears.",
+          "imageUrl": "https://mercuryapp.imneeff.com/the-moon.jpg"
+        },
+        {
+          "id": "mars",
+          "title": "Mars",
+          "phrase": "mars",
+          "meaning": "Action, drive, and passion are required. Assert yourself, channel energy constructively, and move boldly towards your goals.",
+          "imageUrl": "https://mercuryapp.imneeff.com/mars.jpg"
+        },
+        {
+          "id": "jupiter",
+          "title": "Jupiter",
+          "phrase": "jupiter",
+          "meaning": "Luck, growth, and abundance surround you\u2014expand your horizons, pursue wisdom, and seize opportunities for spiritual and personal advancement.",
+          "imageUrl": "https://mercuryapp.imneeff.com/jupiter.jpg"
+        },
+        {
+          "id": "saturn",
+          "title": "Saturn",
+          "phrase": "saturn",
+          "meaning": "Discipline, responsibility, and structure are necessary. Honor your commitments, acknowledge limitations, and persist with maturity.",
+          "imageUrl": "https://mercuryapp.imneeff.com/saturn.jpg"
+        },
+        {
+          "id": "uranus",
+          "title": "Uranus",
+          "phrase": "uranus",
+          "meaning": "Expect sudden change or awakening\u2014break patterns, embrace innovation, and allow breakthroughs to disrupt what is stagnant.",
+          "imageUrl": "https://mercuryapp.imneeff.com/uranus.jpg"
+        },
+        {
+          "id": "neptune",
+          "title": "Neptune",
+          "phrase": "neptune",
+          "meaning": "Dreams, spirituality, and inspiration\u2014dissolve boundaries, use imagination, but beware of illusions or self-deception.",
+          "imageUrl": "https://mercuryapp.imneeff.com/neptune.jpg"
+        },
+        {
+          "id": "pluto",
+          "title": "Pluto",
+          "phrase": "pluto",
+          "meaning": "Transformation and rebirth\u2014embrace fundamental change, face your deepest fears, and allow what no longer serves you to be released.",
+          "imageUrl": "https://mercuryapp.imneeff.com/pluto.jpg"
+        },
+        {
+          "id": "connect-to-higher-states",
+          "title": "Connect to Higher States",
+          "phrase": "connect to higher states",
+          "meaning": "Open your crown to spirit and clarity. Balance spiritual insight with earthly awareness and allow wisdom to enter.",
+          "imageUrl": "https://mercuryapp.imneeff.com/connect-to-higher-states.jpg"
+        },
+        {
+          "id": "activate-your-intuition",
+          "title": "Activate Your Intuition",
+          "phrase": "activate your intuition",
+          "meaning": "Trust your inner knowing and psychic senses\u2014clarify any situation by turning inward and letting intuition be your guide.",
+          "imageUrl": "https://mercuryapp.imneeff.com/activate-your-intuition.jpg"
+        },
+        {
+          "id": "speak-your-truth",
+          "title": "Speak Your Truth",
+          "phrase": "speak your truth",
+          "meaning": "Authentically express yourself; your words shape reality, so communicate honestly and with clarity.",
+          "imageUrl": "https://mercuryapp.imneeff.com/speak-your-truth.jpg"
+        },
+        {
+          "id": "follow-your-heart",
+          "title": "Follow Your Heart",
+          "phrase": "follow your heart",
+          "meaning": "Operate from compassion and openness\u2014self-love and forgiveness are keys to joy and fulfillment.",
+          "imageUrl": "https://mercuryapp.imneeff.com/follow-your-heart.jpg"
+        },
+        {
+          "id": "trust-your-gut",
+          "title": "Trust Your Gut",
+          "phrase": "trust your gut",
+          "meaning": "Feel into your body\u2019s wisdom\u2014intuition, not logic, is your best guide to vital and authentic choices.",
+          "imageUrl": "https://mercuryapp.imneeff.com/trust-your-gut.jpg"
+        },
+        {
+          "id": "create",
+          "title": "Create",
+          "phrase": "create",
+          "meaning": "Embrace creative energy through play, making, and expression\u2014wellness arises from honoring your creative nature.",
+          "imageUrl": "https://mercuryapp.imneeff.com/create.jpg"
+        },
+        {
+          "id": "ground-yourself",
+          "title": "Ground Yourself",
+          "phrase": "ground yourself",
+          "meaning": "Balance and connect by restoring your root\u2014nourish yourself, find security, and tend to basic needs.",
+          "imageUrl": "https://mercuryapp.imneeff.com/ground-yourself.jpg"
+        },
+        {
+          "id": "find-air",
+          "title": "Find Air",
+          "phrase": "find air",
+          "meaning": "Let intellect, curiosity, and freedom flow. Communicate, think creatively, and allow new ideas to circulate.",
+          "imageUrl": "https://mercuryapp.imneeff.com/find-air.jpg"
+        },
+        {
+          "id": "find-earth",
+          "title": "Find Earth",
+          "phrase": "find earth",
+          "meaning": "Stabilize with patience, harmony, and practicality. Stay grounded, nurture abundance, and seek balance.",
+          "imageUrl": "https://mercuryapp.imneeff.com/find-earth.jpg"
+        },
+        {
+          "id": "find-fire",
+          "title": "Find Fire",
+          "phrase": "find fire",
+          "meaning": "Embody transformation and power\u2014channel your energy to ignite change and pursue your passions.",
+          "imageUrl": "https://mercuryapp.imneeff.com/find-fire.jpg"
+        },
+        {
+          "id": "find-spirit",
+          "title": "Find Spirit",
+          "phrase": "find spirit",
+          "meaning": "Connect to the subtle, animating essence of life\u2014divine intelligence guides all; tune in to spiritual wisdom.",
+          "imageUrl": "https://mercuryapp.imneeff.com/find-spirit.jpg"
+        },
+        {
+          "id": "find-water",
+          "title": "Find Water",
+          "phrase": "find water",
+          "meaning": "Let emotion and adaptability flow\u2014be gentle, receptive, and deep; allow feelings to guide your path.",
+          "imageUrl": "https://mercuryapp.imneeff.com/find-water.jpg"
+        },
+        {
+          "id": "stop",
+          "title": "Stop",
+          "phrase": "stop",
+          "meaning": "Cease action and reconsider\u2014this is not the way forward. Sometimes the best move is not to play at all.",
+          "imageUrl": "https://mercuryapp.imneeff.com/stop.jpg"
+        },
+        {
+          "id": "go",
+          "title": "Go",
+          "phrase": "go",
+          "meaning": "Take action and move towards your goals, even if progress is slow. Momentum is key.",
+          "imageUrl": "https://mercuryapp.imneeff.com/go.jpg"
+        },
+        {
+          "id": "yes",
+          "title": "Yes",
+          "phrase": "yes",
+          "meaning": "Affirmation\u2014move forward confidently, accept opportunities, and invite positivity into your life.",
+          "imageUrl": "https://mercuryapp.imneeff.com/yes.jpg"
+        },
+        {
+          "id": "no",
+          "title": "No",
+          "phrase": "no",
+          "meaning": "A negative response\u2014decline, set boundaries, or recognize that rejection opens space for greater things.",
+          "imageUrl": "https://mercuryapp.imneeff.com/no.jpg"
+        },
+        {
+          "id": "all-one-or-none",
+          "title": "All One or None",
+          "phrase": "all one or none",
+          "meaning": "Seek community and collaboration\u2014unity and collective action enhance outcomes for everyone.",
+          "imageUrl": "https://mercuryapp.imneeff.com/all-one-or-none.jpg"
+        },
+        {
+          "id": "avoid-all-traps",
+          "title": "Avoid All Traps",
+          "phrase": "avoid all traps",
+          "meaning": "Exercise discernment and caution\u2014look for hidden motives or pitfalls and plan to sidestep them.",
+          "imageUrl": "https://mercuryapp.imneeff.com/avoid-all-traps.jpg"
+        },
+        {
+          "id": "avoid-your-fate",
+          "title": "Avoid Your Fate",
+          "phrase": "avoid your fate",
+          "meaning": "Take active steps to shape your destiny\u2014refuse to be passive or fall into old patterns; you have the power to change.",
+          "imageUrl": "https://mercuryapp.imneeff.com/avoid-your-fate.jpg"
+        },
+        {
+          "id": "be-kind",
+          "title": "Be Kind",
+          "phrase": "be kind",
+          "meaning": "Practice kindness without self-interest. Compassion and generosity are powerful forces for healing.",
+          "imageUrl": "https://mercuryapp.imneeff.com/be-kind.jpg"
+        },
+        {
+          "id": "be-open",
+          "title": "Be Open",
+          "phrase": "be open",
+          "meaning": "Adopt a beginner\u2019s mind\u2014approach situations with curiosity, humility, and willingness to learn.",
+          "imageUrl": "https://mercuryapp.imneeff.com/be-open.jpg"
+        },
+        {
+          "id": "be-yourself",
+          "title": "Be Yourself",
+          "phrase": "be yourself",
+          "meaning": "Express your true self\u2014honor your individuality and prioritize inner authenticity over external expectations.",
+          "imageUrl": "https://mercuryapp.imneeff.com/be-yourself.jpg"
+        },
+        {
+          "id": "burn-your-boat",
+          "title": "Burn Your Boat",
+          "phrase": "burn your boat",
+          "meaning": "Make a decisive commitment and eliminate any path back\u2014total devotion brings new creative solutions.",
+          "imageUrl": "https://mercuryapp.imneeff.com/burn-your-boat.jpg"
+        },
+        {
+          "id": "call-upon-the-dead",
+          "title": "Call Upon the Dead",
+          "phrase": "call upon the dead",
+          "meaning": "Connect with ancestors or personal heritage for wisdom and support; ritual and remembrance bring transformation.",
+          "imageUrl": "https://mercuryapp.imneeff.com/call-upon-the-dead.jpg"
+        },
+        {
+          "id": "clear-your-mind",
+          "title": "Clear Your Mind",
+          "phrase": "clear your mind",
+          "meaning": "Release mental clutter to restore presence\u2014clarity brings creativity and access to intuitive answers.",
+          "imageUrl": "https://mercuryapp.imneeff.com/clear-your-mind.jpg"
+        },
+        {
+          "id": "conceal-yourself",
+          "title": "Conceal Yourself",
+          "phrase": "conceal yourself",
+          "meaning": "Blend into your surroundings and find strength in openness and transparency rather than hiding.",
+          "imageUrl": "https://mercuryapp.imneeff.com/conceal-yourself.jpg"
+        },
+        {
+          "id": "connect-to-your-body",
+          "title": "Connect to Your Body",
+          "phrase": "connect to your body",
+          "meaning": "Slow down, notice, and appreciate your physical self\u2014body awareness anchors and heals.",
+          "imageUrl": "https://mercuryapp.imneeff.com/connect-to-your-body.jpg"
+        },
+        {
+          "id": "consolidate-your-bodies",
+          "title": "Consolidate Your Bodies",
+          "phrase": "consolidate your bodies",
+          "meaning": "Organize your inner and outer life; bring all aspects of yourself into harmony for health and progress.",
+          "imageUrl": "https://mercuryapp.imneeff.com/consolidate-your-bodies.jpg"
+        },
+        {
+          "id": "contact-the-other",
+          "title": "Contact the Other",
+          "phrase": "contact the other",
+          "meaning": "Reach out to that which is different or unknown\u2014connection with guides, higher knowledge, or new influences is possible.",
+          "imageUrl": "https://mercuryapp.imneeff.com/contact-the-other.jpg"
+        },
+        {
+          "id": "dispel-all-illusions",
+          "title": "Dispel All Illusions",
+          "phrase": "dispel all illusions",
+          "meaning": "See through deception and self-delusion\u2014look directly at difficult truths to free yourself from falsehood.",
+          "imageUrl": "https://mercuryapp.imneeff.com/dispel-all-illusions.jpg"
+        },
+        {          "id": "dissolve-all-notions-of-self",
+          "title": "Dissolve All Notions of Self",
+          "phrase": "dissolve all notions of self",
+          "meaning": "Embrace change by releasing limiting ideas or attachments\u2014rebirth and growth follow surrender.",
+          "imageUrl": "https://mercuryapp.imneeff.com/dissolve-all-notions-of-self.jpg"
+        },
+        {
+          "id": "do-not-forget",
+          "title": "Do Not Forget",
+          "phrase": "do not forget",
+          "meaning": "Pay attention to what needs remembering\u2014this card is a prompt to pull another card for insight.",
+          "imageUrl": "https://mercuryapp.imneeff.com/do-not-forget.jpg"
+        },
+        {
+          "id": "do-not-sleep",
+          "title": "Do Not Sleep",
+          "phrase": "do not sleep",
+          "meaning": "Stay vigilant and attentive\u2014this is a time for progress, not rest. Opportunities or challenges may arise unexpectedly.",
+          "imageUrl": "https://mercuryapp.imneeff.com/do-not-sleep.jpg"
+        },
+        {
+          "id": "embody-light",
+          "title": "Embody Light",
+          "phrase": "embody light",
+          "meaning": "Shine positivity and joy\u2014overcome obstacles by letting your inner light radiate outward to others.",
+          "imageUrl": "https://mercuryapp.imneeff.com/embody-light.jpg"
+        },
+        {
+          "id": "embrace-the-void",
+          "title": "Embrace the Void",
+          "phrase": "embrace the void",
+          "meaning": "Sit with emptiness and silence; transformation and new beginnings arise from this space of nothingness.",
+          "imageUrl": "https://mercuryapp.imneeff.com/embrace-the-void.jpg"
+        },
+        {
+          "id": "employ-chaos",
+          "title": "Employ Chaos",
+          "phrase": "employ chaos",
+          "meaning": "Let go of rigid plans\u2014engage creativity, spontaneity, and new possibilities by playing with the unknown.",
+          "imageUrl": "https://mercuryapp.imneeff.com/employ-chaos.jpg"
+        },
+        {
+          "id": "find-others",
+          "title": "Find Others",
+          "phrase": "find others",
+          "meaning": "Reach out and build connections. Community, collaboration, or new partnerships will fuel your journey.",
+          "imageUrl": "https://mercuryapp.imneeff.com/find-others.jpg"
+        },
+        {
+          "id": "harmonize-with-patterns",
+          "title": "Harmonize with Patterns",
+          "phrase": "harmonize with patterns",
+          "meaning": "Notice and work with natural cycles and repetition in your life\u2014cooperate with the flow to create harmony.",
+          "imageUrl": "https://mercuryapp.imneeff.com/harmonize-with-patterns.jpg"
+        },
+        {
+          "id": "give-patience-to-the-road",
+          "title": "Give Patience to the Road",
+          "phrase": "give patience to the road",
+          "meaning": "Be patient with the journey; everything develops in its own time and rushing will only slow or hinder you.",
+          "imageUrl": "https://mercuryapp.imneeff.com/give-patience-to-the-road.jpg"
+        },
+        {
+          "id": "give-something-away",
+          "title": "Give Something Away",
+          "phrase": "give something away",
+          "meaning": "Release and give freely\u2014offering something without expectation of return is necessary for liberation.",
+          "imageUrl": "https://mercuryapp.imneeff.com/give-something-away.jpg"
+        },
+        {
+          "id": "immanentize-the-eschaton",
+          "title": "Immanentize the Eschaton",
+          "phrase": "immanentize the eschaton",
+          "meaning": "Merge spirit and matter; transcend disorder through love, peace, and extraordinary insight.",
+          "imageUrl": "https://mercuryapp.imneeff.com/immanentize-the-eschaton.jpg"
+        },
+        {
+          "id": "know-divine-timing",
+          "title": "Know Divine Timing",
+          "phrase": "know divine timing",
+          "meaning": "Trust the timing of events; everything unfolds as it should\u2014allow and accept the present moment.",
+          "imageUrl": "https://mercuryapp.imneeff.com/know-divine-timing.jpg"
+        },
+        {
+          "id": "move-your-body",
+          "title": "Move Your Body",
+          "phrase": "move your body",
+          "meaning": "Actively shift your energy\u2014change, exercise, or travel will break stagnation and foster healing.",
+          "imageUrl": "https://mercuryapp.imneeff.com/move-your-body.jpg"
+        },
+        {
+          "id": "observe-the-observer",
+          "title": "Observe the Observer",
+          "phrase": "observe the observer",
+          "meaning": "Contemplate your own awareness; realize the unity of self and experience, and reflect deeply.",
+          "imageUrl": "https://mercuryapp.imneeff.com/observe-the-observer.jpg"
+        },
+        {
+          "id": "organize",
+          "title": "Organize",
+          "phrase": "organize",
+          "meaning": "Bring order to your inner and outer world; clear and intentional organization supports progress.",
+          "imageUrl": "https://mercuryapp.imneeff.com/organize.jpg"
+        },
+        {
+          "id": "plant-seeds",
+          "title": "Plant Seeds",
+          "phrase": "plant seeds",
+          "meaning": "Begin something new\u2014start with small steps, nurture your ideas patiently, and trust them to grow over time.",
+          "imageUrl": "https://mercuryapp.imneeff.com/plant-seeds.jpg"
+        },
+        {
+          "id": "practice-dreaming",
+          "title": "Practice Dreaming",
+          "phrase": "practice dreaming",
+          "meaning": "Take time to imagine and embody your deepest dreams. Manifestation starts with vision and feeling.",
+          "imageUrl": "https://mercuryapp.imneeff.com/practice-dreaming.jpg"
+        },
+        {
+          "id": "read-your-omens",
+          "title": "Read Your Omens",
+          "phrase": "read your omens",
+          "meaning": "Notice synchronicities and intuitive nudges\u2014guidance is present in every sign and symbol.",
+          "imageUrl": "https://mercuryapp.imneeff.com/read-your-omens.jpg"
+        },
+        {
+          "id": "receive-your-gifts",
+          "title": "Receive Your Gifts",
+          "phrase": "receive your gifts",
+          "meaning": "Allow yourself to accept abundance and blessings that are freely given\u2014embrace generosity inwardly and outwardly.",
+          "imageUrl": "https://mercuryapp.imneeff.com/receive-your-gifts.jpg"
+        },
+        {
+          "id": "recognize-other-realities",
+          "title": "Recognize Other Realities",
+          "phrase": "recognize other realities",
+          "meaning": "Empathize with alternate perspectives\u2014be open to different outcomes, worlds, or perceptions.",
+          "imageUrl": "https://mercuryapp.imneeff.com/recognize-other-realities.jpg"
+        },
+        {
+          "id": "reformulate-your-approach",
+          "title": "Reformulate Your Approach",
+          "phrase": "reformulate your approach",
+          "meaning": "Try a new angle or perspective\u2014innovative questions and courageous inquiry bring new solutions.",
+          "imageUrl": "https://mercuryapp.imneeff.com/reformulate-your-approach.jpg"
+        },
+        {
+          "id": "retrace-your-steps",
+          "title": "Retrace Your Steps",
+          "phrase": "retrace your steps",
+          "meaning": "Review your history for insight; the solution may lie in your past experience or lesson already learned.",
+          "imageUrl": "https://mercuryapp.imneeff.com/retrace-your-steps.jpg"
+        },
+        {
+          "id": "return-to-love",
+          "title": "Return to Love",
+          "phrase": "return to love",
+          "meaning": "Healing and resolution are found in compassion, forgiveness, and honest self-love.",
+          "imageUrl": "https://mercuryapp.imneeff.com/return-to-love.jpg"
+        },
+        {
+          "id": "rise-above-it",
+          "title": "Rise Above It",
+          "phrase": "rise above it",
+          "meaning": "View your challenges from a higher vantage point\u2014what seemed like a problem may be a hidden blessing.",
+          "imageUrl": "https://mercuryapp.imneeff.com/rise-above-it.jpg"
+        },
+        {
+          "id": "search-for-the-demon",
+          "title": "Search For The Demon",
+          "phrase": "search for the demon",
+          "meaning": "Face your shadow and fears\u2014naming the obstacles or negative patterns allows you to release them.",
+          "imageUrl": "https://mercuryapp.imneeff.com/search-for-the-demon.jpg"
+        },
+        {
+          "id": "seek-the-edge",
+          "title": "Seek the Edge",
+          "phrase": "seek the edge",
+          "meaning": "Explore beyond your comfort zone\u2014growth happens at the boundaries, even when it feels uncomfortable.",
+          "imageUrl": "https://mercuryapp.imneeff.com/seek-the-edge.jpg"
+        },
+        {
+          "id": "seek-your-destiny",
+          "title": "Seek Your Destiny",
+          "phrase": "seek your destiny",
+          "meaning": "Clarify your dreams and ambitions\u2014take steps toward purposeful goals and awaken to your highest potential.",
+          "imageUrl": "https://mercuryapp.imneeff.com/seek-your-destiny.jpg"
+        },
+        {
+          "id": "share-joy",
+          "title": "Share Joy",
+          "phrase": "share joy",
+          "meaning": "Spread happiness and creativity\u2014shared joy uplifts communities and creates waves of light.",
+          "imageUrl": "https://mercuryapp.imneeff.com/share-joy.jpg"
+        },
+        {
+          "id": "shift-dimensions",
+          "title": "Shift Dimensions",
+          "phrase": "shift dimensions",
+          "meaning": "Change your perspective or reality consciously\u2014small intentional shifts can bring you into a new world.",
+          "imageUrl": "https://mercuryapp.imneeff.com/shift-dimensions.jpg"
+        },
+        {
+          "id": "spend-time-alone",
+          "title": "Spend Time Alone",
+          "phrase": "spend time alone",
+          "meaning": "Rest and restore in solitude\u2014self-reflection is necessary for inner balance and new insight.",
+          "imageUrl": "https://mercuryapp.imneeff.com/spend-time-alone.jpg"
+        },
+        {
+          "id": "sleep",
+          "title": "Sleep",
+          "phrase": "sleep",
+          "meaning": "Rest deeply; pause all effort. This is a time of restoration\u2014replenish your energy before continuing.",
+          "imageUrl": "https://mercuryapp.imneeff.com/sleep.jpg"
+        },
+        {
+          "id": "struggle-through",
+          "title": "Struggle Through",
+          "phrase": "struggle through",
+          "meaning": "Embrace and consciously engage with life's challenges\u2014struggle leads to breakthrough and growth.",
+          "imageUrl": "https://mercuryapp.imneeff.com/struggle-through.jpg"
+        },
+        {
+          "id": "surrender-completely",
+          "title": "Surrender Completely",
+          "phrase": "surrender completely",
+          "meaning": "Release all control and trust a greater flow; true freedom comes with total acceptance and faith.",
+          "imageUrl": "https://mercuryapp.imneeff.com/surrender-completely.jpg"
+        },
+        {
+          "id": "there-is-order-in-chaos",
+          "title": "There Is Order in Chaos",
+          "phrase": "there is order in chaos",
+          "meaning": "Beneath every chaotic situation is a deeper pattern. Trust that things are organizing themselves for your evolution.",
+          "imageUrl": "https://mercuryapp.imneeff.com/there-is-order-in-chaos.jpg"
+        },
+        {
+          "id": "tie-new-knots",
+          "title": "Tie New Knots",
+          "phrase": "tie new knots",
+          "meaning": "Create new connections or commitments\u2014untangle what's old and strengthen bonds that support your future.",
+          "imageUrl": "https://mercuryapp.imneeff.com/tie-new-knots.jpg"
+        },
+        {
+          "id": "twist-your-language",
+          "title": "Twist Your Language",
+          "phrase": "twist your language",
+          "meaning": "Use metaphor and creativity to change your reality; reframing your words reshapes your world.",
+          "imageUrl": "https://mercuryapp.imneeff.com/twist-your-language.jpg"
+        },
+        {
+          "id": "use-your-lock-as-a-key",
+          "title": "Use Your Lock as a Key",
+          "phrase": "use your lock as a key",
+          "meaning": "The solution is within the problem\u2014face obstacles directly and they become stepping stones.",
+          "imageUrl": "https://mercuryapp.imneeff.com/use-your-lock-as-a-key.jpg"
+        },
+        {
+          "id": "wait-until-dark",
+          "title": "Wait Until Dark",
+          "phrase": "wait until dark",
+          "meaning": "The right moment is coming, but not yet\u2014patience is required. Wait for the night to reveal what you need.",
+          "imageUrl": "https://mercuryapp.imneeff.com/wait-until-dark.jpg"
+        },
+        {
+          "id": "wait-until-light",
+          "title": "Wait Until Light",
+          "phrase": "wait until light",
+          "meaning": "Hold your action until clarity and favorable conditions appear\u2014dawn will show the way.",
+          "imageUrl": "https://mercuryapp.imneeff.com/wait-until-light.jpg"
+        },
+        {
+          "id": "your-feeling-is-correct",
+          "title": "Your Feeling Is Correct",
+          "phrase": "your feeling is correct",
+          "meaning": "Trust your bodily knowing; clarity and truth arise from balanced mind and feeling.",
+          "imageUrl": "https://mercuryapp.imneeff.com/your-feeling-is-correct.jpg"
+        },
+        {
+          "id": "zoom-in",
+          "title": "Zoom In",
+          "phrase": "zoom in",
+          "meaning": "Examine the details of your inner world\u2014introspection will reveal subtle truths or new insights.",
+          "imageUrl": "https://mercuryapp.imneeff.com/zoom-in.jpg"
+        },
+        {
+          "id": "zoom-out",
+          "title": "Zoom Out",
+          "phrase": "zoom out",
+          "meaning": "Expand your view\u2014step back and place your situation in the wider context for clarity and perspective.",
+          "imageUrl": "https://mercuryapp.imneeff.com/zoom-out.jpg"
         }
       ]
     }
